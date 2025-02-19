@@ -1,0 +1,81 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  darkMode: 'selector',
+  content: [
+    './src/**/*.{vue,js,ts,jsx,tsx}',
+    //
+    './src/components/**/*.{js,vue,ts}',
+    './src/layouts/**/*.vue',
+    './src/pages/**/*.vue',
+    './src/plugins/**/*.{js,ts}',
+    './nuxt.config.{js,ts}',
+    './src/app.vue',
+  ],
+  theme: {
+    darkMode: 'selector',
+    fontFamily: {
+      sans: ['SF Pro Display', 'sans-serif'],
+      rounded: ['SF Pro Rounded', 'sans-serif'],
+      unbounded: ['Unbounded', 'sans-serif'],
+    },
+    container: {
+      center: true,
+      screens: {
+        sm: '100%',
+        md: '100%',
+        lg: '100%',
+        xl: '1180px',
+        '2xl': '1180px', // Limit the container width to 1440px at 2xl and above
+      },
+      padding: {
+        DEFAULT: '1rem',
+        '2xl': '4rem',
+      },
+    },
+    extend: {
+      colors: {
+        yellow: {
+          DEFAULT: '#FACF06',
+          400: '#FACF06',
+          500: '#FACF06',
+        },
+        peach: '#FAF2E6',
+        red: {
+          DEFAULT: '#FF0000',
+          400: '#FF0000',
+          500: '#FF0000',
+        },
+        pink: '#ED2079',
+        purple: {
+          DEFAULT: '#6910E0',
+          100: '#0025CD',
+          400: '#6910E0',
+          500: '#6910E0',
+          600: '#B47CFF',
+        },
+        blue: {
+          DEFAULT: '#0685F8',
+          100: '#0025CD',
+          400: '#0685F8',
+          500: '#0685F8',
+        },
+        black: {
+          DEFAULT: '#000000',
+          100: '#F9F9F9',
+          200: '#BDBDBD',
+          300: '#636060',
+          400: '#000000',
+          500: '#999999',
+          600: '#1B1B1B',
+          700: '#282D33',
+          800: '#808080',
+          900: '#0D0E0E',
+          950: '#CCCCCC',
+          1000: '#E0E0E0',
+          1100: '#F6F6F6',
+        },
+      },
+    },
+  },
+  plugins: [],
+}

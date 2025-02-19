@@ -1,0 +1,19 @@
+<template>
+  <div class="mt-[63px]">
+    <vue3-lottie
+      animation-link="/assets/animations/portal.json"
+      height="100%"
+      width="100%"
+      :loop="true"
+      renderer="canvas"
+      @on-complete="completeHandler"
+      class="pointer-events-none select-none"
+    />
+  </div>
+</template>
+
+<script lang="ts" setup>
+import { Vue3Lottie } from 'vue3-lottie'
+
+const completeHandler = () => {}
+</script>
