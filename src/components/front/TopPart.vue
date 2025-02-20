@@ -2,7 +2,7 @@
   <div class="container mt-[173px]">
     <div class="header-h1 text-center">
       {{ $t('accomplish') }}
-      <span class="bg-gradient-to-b from-purple-600 to-purple bg-clip-text text-transparent">
+      <span class="text-gradient">
         {{ $t('any') }}
       </span>
       <br />

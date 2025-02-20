@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+  .text-gradient {
+    @apply bg-gradient-to-b from-purple-600 to-purple bg-clip-text text-transparent;
+  }
+
   .f14 {
     @apply text-sm leading-[21px];
   }
@@ -80,7 +84,7 @@
   }
 
   .h2 {
-    @apply text-[32px] font-bold leading-[110%] lg:text-[60px] lg:leading-[64px];
+    @apply font-unbounded text-[52px] font-semibold leading-[120%] tracking-[0.52px];
   }
 
   .h3 {
@@ -95,12 +99,36 @@
     @apply text-xl font-bold leading-[normal] lg:text-2xl;
   }
 
+  .u10b {
+    @apply font-unbounded text-xs font-bold leading-[normal] tracking-[0.2px];
+  }
+
+  .u26m {
+    @apply font-unbounded text-[26px] font-medium leading-[normal];
+  }
+
+  .r18m {
+    @apply font-rounded text-lg font-medium leading-[normal] tracking-[0.36px];
+  }
+
+  .p12r {
+    @apply text-xs font-normal leading-[normal];
+  }
+
   .p14s {
     @apply font-rounded text-sm font-semibold leading-[normal] tracking-[0.28px];
   }
 
   .p16e {
     @apply font-unbounded text-base font-extrabold leading-[normal] tracking-[0.32px];
+  }
+
+  .p16m {
+    @apply font-unbounded text-base font-medium leading-[140%] tracking-[0.32px];
+  }
+
+  .p-s {
+    @apply font-rounded text-lg font-light leading-[normal] tracking-[0.36px];
   }
 
   .p-m {

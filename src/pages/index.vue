@@ -2,7 +2,9 @@
   <div class="min-h-[100vh]">
     <TopPart />
 
-    <HyperLoop />
+    <HyperLoop v-if="false" />
+
+    <WhatIsHyperSpace />
   </div>
 </template>
 
@@ -10,4 +12,6 @@
 import TopPart from '~/components/front/TopPart.vue'
 
 import HyperLoop from '~/components/front/HyperLoop.vue'
+
+import WhatIsHyperSpace from '~/components/front/WhatIsHyperSpace.vue'
 </script>

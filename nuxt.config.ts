@@ -79,6 +79,7 @@ export default defineNuxtConfig({
       email: process.env.APP_EMAIL,
       address: process.env.APP_ADDRESS,
     },
+    API_URL: process.env.API_URL,
     SENDGRID_API_KEY: process.env.APP_SENDGRID_API_KEY,
   },
 })

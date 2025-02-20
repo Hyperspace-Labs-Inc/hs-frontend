@@ -5,7 +5,7 @@
     :to="to"
     :target="target"
     style="outline: 0"
-    @click="emit('click')"
+    @click="emit('click', event)"
   >
     <GIcon
       v-if="icon"
@@ -14,7 +14,7 @@
       :class="[iconClass, { 'opacity-0': loading }]"
     />
 
-    <span v-if="!isIconOnly" :class="['relative z-10', slotClass, { 'opacity-0': loading }]">
+    <span v-if="!isIconOnly" :class="['relative z-10 block', slotClass, { 'opacity-0': loading }]">
       <slot />
     </span>
 
@@ -51,9 +51,9 @@ type Props = {
     | 'default'
     | 'green'
     | 'green-simple'
-    | 'gray'
-    | 'secondary'
-  classes?: string
+    | 'grey'
+    | 'link'
+  classes?: string | object | []
   to?: string
   target?: string
   wFit?: boolean
@@ -73,10 +73,11 @@ const sizesMap = {
   big: 'h-14',
   default: '',
   small: 'h-8 w-full max-w-[180px] px-6 text-base',
-  medium: 'h-[46px] w-full max-w-[206px] px-6 text-lg',
+  medium: 'rounded-full px-3 h-11 text-sm font-semibold tracking-[-0.24px]',
 }
 
 const colorsMap = {
+  grey: 'bg-black-800 text-black-700',
   default: 'bg-black text-white',
   ghost: 'bg-transparent ring-2 ring-inset ring-black text-black',
   transparent: ' ',
