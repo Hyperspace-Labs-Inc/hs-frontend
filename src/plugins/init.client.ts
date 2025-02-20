@@ -3,6 +3,10 @@ export default defineNuxtPlugin({
   setup(app) {
     const { getCatalog } = useCatalog()
 
+    // const { getReviews } = useReviews()
+
     getCatalog()
+
+   // getReviews()
   },
 })

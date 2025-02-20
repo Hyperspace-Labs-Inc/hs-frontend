@@ -1,22 +1,5 @@
 <template>
   <div class="mt-12">
-    <div class="bg-black-1100">
-      <div class="container flex flex-col gap-6 py-8">
-        <div class="max-lg:header-h2 header-h1">{{ $t('popular') }}</div>
-        <div class="flex flex-wrap items-center gap-4">
-          <div
-            v-for="(popular, index) in popularItems"
-            :key="index"
-            class="body-regular flex items-center gap-4 text-black-800"
-          >
-            {{ popular }}
-
-            <Divider v-if="popularItems.length > index + 1" vertical />
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="container my-8 flex max-lg:flex-col max-lg:gap-5">
       <div v-if="rentalsItems.length" class="flex-1">
         <div class="body-semibold">{{ $t('rentals') }}</div>
@@ -45,7 +28,7 @@
         <div class="body-semibold">{{ $t('contacts') }}</div>
 
         <div class="body-small-regular mt-3 flex gap-3 text-black-800">
-          <div class="flex lg:flex-shrink-0 flex-col gap-3  lg:w-1/3">
+          <div class="flex flex-col gap-3 lg:w-1/3 lg:flex-shrink-0">
             <div v-for="(contact, index) in contactsItems" :key="index">
               {{ contact.title }}:
               <div class="lg:hidden">{{ contact.value }}</div>

@@ -103,12 +103,20 @@
     @apply font-unbounded text-xs font-bold leading-[normal] tracking-[0.2px];
   }
 
+  .u18b {
+    @apply font-unbounded text-lg font-bold leading-[normal] tracking-[0.36px];
+  }
+
   .u26m {
     @apply font-unbounded text-[26px] font-medium leading-[normal];
   }
 
   .r18m {
     @apply font-rounded text-lg font-medium leading-[normal] tracking-[0.36px];
+  }
+
+  .r18s {
+    @apply font-rounded text-lg font-semibold leading-[normal] tracking-[0.36px];
   }
 
   .p12r {

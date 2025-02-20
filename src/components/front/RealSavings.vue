@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-[120px]">
+  <div class="container mt-[96px]">
     <div class="h2 text-center text-purple">
       {{ $t('why') }}
       <div class="text-black">{{ $t('hyperspace') }}?</div>
