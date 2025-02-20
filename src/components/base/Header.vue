@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fixed left-0 right-0 top-0 z-50 bg-white py-2 transition-[padding] lg:py-8"
+    class="fixed left-0 right-0 top-0 z-50 bg-black-100 py-2 transition-[padding] lg:py-8"
     :class="{ 'lg:!py-2': isStickied }"
   >
     <div class="container flex items-center gap-4 max-lg:justify-center">
