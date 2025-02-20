@@ -96,7 +96,7 @@
   }
 
   .h5 {
-    @apply text-xl font-bold leading-[normal] lg:text-2xl;
+    @apply font-unbounded text-2xl font-bold leading-[140%] tracking-[0.48px];
   }
 
   .u10b {
