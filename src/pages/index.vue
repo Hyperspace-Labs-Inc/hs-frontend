@@ -7,6 +7,8 @@
     <WhatIsHyperSpace />
 
     <WhyChooseHyperSpace />
+
+    <RealSavings />
   </div>
 </template>
 
@@ -18,4 +20,6 @@ import HyperLoop from '~/components/front/HyperLoop.vue'
 import WhatIsHyperSpace from '~/components/front/WhatIsHyperSpace.vue'
 
 import WhyChooseHyperSpace from '~/components/front/WhyChooseHyperSpace.vue'
+
+import RealSavings from '~/components/front/RealSavings.vue'
 </script>

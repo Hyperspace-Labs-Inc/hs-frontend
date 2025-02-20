@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-[120px]">
+  <div ref="target" class="container mt-[120px]">
     <div class="h2 text-center text-purple">
       {{ $t('why') }}
       <div class="text-black">{{ $t('hyperspace') }}?</div>
@@ -8,6 +8,7 @@
     <div class="mt-[72px] flex">
       <div class="flex-1">
         <vue3-lottie
+          v-if="targetIsVisible"
           animation-link="/assets/animations/models.json"
           height="100%"
           width="100%"
@@ -30,6 +31,12 @@
 
 <script lang="ts" setup>
 import { Vue3Lottie } from 'vue3-lottie'
+
+import { useElementVisibility } from '@vueuse/core'
+
+const target = useTemplateRef<HTMLDivElement>('target')
+
+const targetIsVisible = useElementVisibility(target)
 
 const completeHandler = () => {}
 </script>
