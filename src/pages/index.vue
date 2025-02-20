@@ -5,6 +5,8 @@
     <HyperLoop v-if="false" />
 
     <WhatIsHyperSpace />
+
+    <WhyChooseHyperSpace />
   </div>
 </template>
 
@@ -14,4 +16,6 @@ import TopPart from '~/components/front/TopPart.vue'
 import HyperLoop from '~/components/front/HyperLoop.vue'
 
 import WhatIsHyperSpace from '~/components/front/WhatIsHyperSpace.vue'
+
+import WhyChooseHyperSpace from '~/components/front/WhyChooseHyperSpace.vue'
 </script>

@@ -24,12 +24,11 @@ export default {
         sm: '100%',
         md: '100%',
         lg: '100%',
-        xl: '1180px',
-        '2xl': '1180px', // Limit the container width to 1440px at 2xl and above
+        xl: '1344px',
+        '2xl': '1344px', // Limit the container width to 1440px at 2xl and above
       },
       padding: {
         DEFAULT: '1rem',
-        '2xl': '4rem',
       },
     },
     extend: {

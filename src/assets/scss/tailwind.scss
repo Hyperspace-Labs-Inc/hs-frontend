@@ -88,7 +88,7 @@
   }
 
   .h3 {
-    @apply text-[32px] font-bold leading-[48px] lg:text-[44px];
+    @apply font-unbounded text-[40px] font-medium leading-[normal];
   }
 
   .h4 {
