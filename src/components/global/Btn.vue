@@ -78,8 +78,8 @@ const sizesMap = {
 
 const colorsMap = {
   grey: 'bg-black-800 text-black-700',
-  default: 'bg-black text-white',
-  ghost: 'bg-transparent ring-2 ring-inset ring-black text-black',
+  default: 'bg-black text-white hover:bg-white hover:ring-2 ring-inset ring-black hover:text-black',
+  ghost: 'bg-transparent ring-2 ring-inset ring-black text-black hover:bg-black hover:text-white',
   transparent: ' ',
   gradient: 'bg-gradient-to-b hover:bg-gradient-to-t from-purple-600 to-purple text-white',
 }
