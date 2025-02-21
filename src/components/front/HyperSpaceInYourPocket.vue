@@ -12,10 +12,10 @@
 
           <div class="flex flex-col gap-4">
             <NuxtLink>
-              <img src="/images/apple.webp" class="w-[135px]" alt="" />
+              <img src="/assets/images/apple.webp" class="w-[135px]" alt="" />
             </NuxtLink>
             <NuxtLink>
-              <img src="/images/google.webp" class="w-[152px]" alt="" />
+              <img src="/assets/images/google.webp" class="w-[152px]" alt="" />
             </NuxtLink>
           </div>
         </div>
@@ -26,7 +26,7 @@
       </div>
 
       <div class="flex min-w-0 flex-1 flex-col gap-4">
-        <img src="/images/pocket.webp" alt="" class="w-full" />
+        <img src="/assets/images/pocket.webp" alt="" class="w-full" />
       </div>
     </div>
   </div>

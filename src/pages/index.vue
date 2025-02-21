@@ -21,6 +21,8 @@
     <HyperSpaceInYourPocket />
 
     <FAQ />
+
+    <SaveBig />
   </div>
 </template>
 
@@ -41,4 +43,5 @@ import ChooseYourDirection from '~/components/front/ChooseYourDirection.vue'
 import ThreeSteps from '~/components/front/ThreeSteps.vue'
 import HyperSpaceInYourPocket from '~/components/front/HyperSpaceInYourPocket.vue'
 import FAQ from '~/components/front/FAQ.vue'
+import SaveBig from '~/components/front/SaveBig.vue'
 </script>

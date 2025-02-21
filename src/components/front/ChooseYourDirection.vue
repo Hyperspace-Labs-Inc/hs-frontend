@@ -13,11 +13,11 @@
       </div>
 
       <div class="flex min-w-0 flex-1 flex-col gap-4">
-        <NuxtLink><img src="/images/choose/images.webp" alt="" class="w-full" /></NuxtLink>
-        <NuxtLink><img src="/images/choose/chatbots.webp" alt="" class="w-full" /></NuxtLink>
-        <NuxtLink><img src="/images/choose/texts.webp" alt="" class="w-full" /></NuxtLink>
-        <NuxtLink><img src="/images/choose/music.webp" alt="" class="w-full" /></NuxtLink>
-        <NuxtLink><img src="/images/choose/voices.webp" alt="" class="w-full" /></NuxtLink>
+        <NuxtLink><img src="/assets/images/choose/images.webp" alt="" class="w-full" /></NuxtLink>
+        <NuxtLink><img src="/assets/images/choose/chatbots.webp" alt="" class="w-full" /></NuxtLink>
+        <NuxtLink><img src="/assets/images/choose/texts.webp" alt="" class="w-full" /></NuxtLink>
+        <NuxtLink><img src="/assets/images/choose/music.webp" alt="" class="w-full" /></NuxtLink>
+        <NuxtLink><img src="/assets/images/choose/voices.webp" alt="" class="w-full" /></NuxtLink>
       </div>
     </div>
   </div>

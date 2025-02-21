@@ -9,17 +9,17 @@
 
     <div class="mt-[96px] flex gap-10">
       <div class="flex flex-1 flex-col gap-6">
-        <img src="/images/steps/step1.webp" alt="" class="mx-auto w-full max-w-[320px]" />
+        <img src="/assets/images/steps/step1.webp" alt="" class="mx-auto w-full max-w-[320px]" />
         <div class="h5">1. {{ $t('imagine') }}</div>
         <div class="p-m">{{ $t('whether') }}</div>
       </div>
       <div class="flex flex-1 flex-col gap-6">
-        <img src="/images/steps/step2.webp" alt="" class="mx-auto w-full max-w-[320px]" />
+        <img src="/assets/images/steps/step2.webp" alt="" class="mx-auto w-full max-w-[320px]" />
         <div class="h5">2. {{ $t('send') }}</div>
         <div class="p-m">{{ $t('select') }}</div>
       </div>
       <div class="flex flex-1 flex-col gap-6">
-        <img src="/images/steps/step3.webp" alt="" class="mx-auto w-full max-w-[320px]" />
+        <img src="/assets/images/steps/step3.webp" alt="" class="mx-auto w-full max-w-[320px]" />
         <div class="h5">3. {{ $t('enjoy') }}</div>
         <div class="p-m">{{ $t('interact') }}</div>
       </div>
