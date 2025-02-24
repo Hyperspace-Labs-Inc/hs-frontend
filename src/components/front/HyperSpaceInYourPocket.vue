@@ -1,31 +1,31 @@
 <template>
-  <div class="container pb-[120px]">
-    <div class="flex items-center gap-8 px-[96px]">
-      <div class="flex flex-1 flex-col gap-11">
-        <div class="h2">
+  <div class=":pb-[120px] container pb-[72px]">
+    <div class="flex items-center gap-8 max-lg:flex-col-reverse max-lg:px-2 lg:px-[96px]">
+      <div class="flex flex-1 flex-col gap-6 lg:gap-11">
+        <div class="h2 max-lg:text-center">
           {{ $t('hyperspace_in_your') }}
           <span class="text-gradient">{{ $t('pocket') }}!</span>
         </div>
 
-        <div class="flex gap-8">
-          <GIcon name="qr" class="flex-shrink-0 text-[108px]" />
+        <div class="flex gap-8 max-lg:order-1">
+          <GIcon name="qr" class="flex-shrink-0 text-[108px] max-lg:hidden" />
 
-          <div class="flex flex-col gap-4">
+          <div class="flex lg:flex-col gap-3 lg:gap-4">
             <NuxtLink>
-              <img src="/assets/images/apple.webp" class="w-[135px]" alt="" />
+              <img src="/assets/images/apple.webp" class="lg:w-[135px]" alt="" />
             </NuxtLink>
             <NuxtLink>
-              <img src="/assets/images/google.webp" class="w-[152px]" alt="" />
+              <img src="/assets/images/google.webp" class="lg:w-[152px]" alt="" />
             </NuxtLink>
           </div>
         </div>
 
-        <div class="p-m">{{ $t('continue') }}</div>
+        <div class="p-m max-lg:order-0">{{ $t('continue') }}</div>
 
-        <Btn color="ghost" w-fit>{{ $t('learn_more') }}</Btn>
+        <Btn color="ghost" classes="max-lg:order-2 lg:w-fit">{{ $t('learn_more') }}</Btn>
       </div>
 
-      <div class="flex min-w-0 flex-1 flex-col gap-4">
+      <div class="min-w-0 flex-1">
         <img src="/assets/images/pocket.webp" alt="" class="w-full" />
       </div>
     </div>

@@ -1,31 +1,33 @@
 <template>
-  <div class="container py-[120px] text-center">
-    <div class="h2">
+  <div class="container py-[72px] lg:py-[120px] lg:text-center">
+    <div class="h2 max-lg:text-center">
       {{ $t('three') }}
-      <span class="text-gradient">{{ $t('solve') }}</span>
-      <br />
+      <span class="text-gradient">{{ $t('solve') }}&nbsp;</span>
+      <br class="max-lg:hidden" />
       <span class="text-gradient">{{ $t('everything') }}</span>
     </div>
 
-    <div class="mt-[96px] flex gap-10">
-      <div class="flex flex-1 flex-col gap-6">
+    <div class="mt-12 flex gap-14 max-lg:flex-col lg:mt-[96px] lg:gap-10">
+      <div class="flex flex-1 flex-col gap-4 max-lg:flex-col-reverse lg:gap-6">
         <img src="/assets/images/steps/step1.webp" alt="" class="mx-auto w-full max-w-[320px]" />
-        <div class="h5">1. {{ $t('imagine') }}</div>
-        <div class="p-m">{{ $t('whether') }}</div>
+        <div class="h3 lg:h5 max-lg:order-1">1. {{ $t('imagine') }}</div>
+        <div class="p-s lg:p-m max-lg:order-0">{{ $t('whether') }}</div>
       </div>
-      <div class="flex flex-1 flex-col gap-6">
+      <div class="flex flex-1 flex-col gap-4 max-lg:flex-col-reverse lg:gap-6">
         <img src="/assets/images/steps/step2.webp" alt="" class="mx-auto w-full max-w-[320px]" />
-        <div class="h5">2. {{ $t('send') }}</div>
-        <div class="p-m">{{ $t('select') }}</div>
+        <div class="h3 lg:h5 max-lg:order-1">2. {{ $t('send') }}</div>
+        <div class="p-s lg:p-m max-lg:order-0">{{ $t('select') }}</div>
       </div>
-      <div class="flex flex-1 flex-col gap-6">
+      <div class="flex flex-1 flex-col gap-4 max-lg:flex-col-reverse lg:gap-6">
         <img src="/assets/images/steps/step3.webp" alt="" class="mx-auto w-full max-w-[320px]" />
-        <div class="h5">3. {{ $t('enjoy') }}</div>
-        <div class="p-m">{{ $t('interact') }}</div>
+        <div class="h3 lg:h5 max-lg:order-1">3. {{ $t('enjoy') }}</div>
+        <div class="p-s lg:p-m max-lg:order-0">{{ $t('interact') }}</div>
       </div>
     </div>
 
-    <Btn classes="mx-auto min-w-[255px] mt-12" w-fit>{{ $t('try_it_now') }}</Btn>
+    <Btn classes="lg:mx-auto lg:min-w-[255px] mt-12 lg:w-fit" to="/onboarding">
+      {{ $t('try_it_now') }}
+    </Btn>
   </div>
 </template>
 <script setup lang="ts"></script>
