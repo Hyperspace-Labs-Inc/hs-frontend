@@ -18,7 +18,7 @@
           class="pointer-events-none select-none"
         />
 
-        <Btn classes="mt-6 lg:hidden mx-auto" w-fit to="/onboarding">{{ $t('try_our') }}</Btn>
+        <Btn classes="mt-6 lg:hidden mx-auto" w-fit to="https://hyperspace.ai/onboarding">{{ $t('try_our') }}</Btn>
       </div>
 
       <div class="flex-1 max-lg:text-center lg:p-[96px]">
@@ -26,7 +26,7 @@
 
         <div class="p-m mt-4 lg:mt-6" v-html="$t('we_offer')" />
 
-        <Btn classes="mt-10 max-lg:hidden" w-fit to="/onboarding">{{ $t('try_our') }}</Btn>
+        <Btn classes="mt-10 max-lg:hidden" w-fit to="https://hyperspace.ai/onboarding">{{ $t('try_our') }}</Btn>
       </div>
     </div>
   </div>

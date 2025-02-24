@@ -103,7 +103,7 @@
         {{ $t('month') }}
       </div>
 
-      <Btn classes="lg:w-fit lg:mx-auto mt-6" to="/onboarding">{{ $t('start_free') }}</Btn>
+      <Btn classes="lg:w-fit lg:mx-auto mt-6" to="https://hyperspace.ai/onboarding">{{ $t('start_free') }}</Btn>
     </div>
   </div>
 </template>

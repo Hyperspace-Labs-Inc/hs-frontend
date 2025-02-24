@@ -50,7 +50,7 @@
           </div>
         </div>
 
-        <Btn w-fit classes="mt-10 max-lg:mx-auto lg:mt-8" to="/onboarding">
+        <Btn w-fit classes="mt-10 max-lg:mx-auto lg:mt-8" to="https://hyperspace.ai/onboarding">
           {{ $t('join_hyperspace') }}
         </Btn>
       </div>

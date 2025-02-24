@@ -29,7 +29,7 @@
             color="gradient-r"
             icon-prepend-class="text-xs"
             classes="uppercase gap-4 lg:w-fit"
-            to="/onboarding"
+            to="https://hyperspace.ai/onboarding"
           >
             {{ $t('tryfree') }}
           </Btn>
