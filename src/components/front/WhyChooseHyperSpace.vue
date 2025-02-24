@@ -9,7 +9,6 @@
     <div class="mt-14 flex max-lg:flex-col-reverse max-lg:gap-6 lg:mt-[72px]">
       <div class="flex-1">
         <vue3-lottie
-          v-if="targetIsVisible"
           animation-link="/assets/animations/models.json"
           height="100%"
           width="100%"

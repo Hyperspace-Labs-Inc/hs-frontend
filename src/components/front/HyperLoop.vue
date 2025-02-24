@@ -1,7 +1,6 @@
 <template>
   <div ref="target" class="pt-[63px]" id="hyper-loop">
     <vue3-lottie
-      v-if="targetIsVisible"
       animation-link="/assets/animations/portal.json"
       height="100%"
       width="100%"

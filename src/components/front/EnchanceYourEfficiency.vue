@@ -3,7 +3,6 @@
     <div class="flex max-lg:flex-col-reverse max-lg:gap-8">
       <div class="flex-1">
         <vue3-lottie
-          v-if="targetIsVisible"
           animation-link="/assets/animations/graph.json"
           height="100%"
           width="100%"
