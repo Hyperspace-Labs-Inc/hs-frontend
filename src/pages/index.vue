@@ -2,7 +2,7 @@
   <div class="min-h-[100vh]">
     <TopPart />
 
-    <HyperLoop v-if="false" />
+    <HyperLoop />
 
     <WhatIsHyperSpace />
 

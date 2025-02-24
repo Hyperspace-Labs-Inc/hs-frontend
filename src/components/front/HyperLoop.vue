@@ -1,6 +1,7 @@
 <template>
-  <div class="mt-[63px]">
+  <div ref="target" class="pt-[63px]">
     <vue3-lottie
+      v-if="targetIsVisible"
       animation-link="/assets/animations/portal.json"
       height="100%"
       width="100%"
@@ -14,5 +15,11 @@
 <script lang="ts" setup>
 import { Vue3Lottie } from 'vue3-lottie'
 
+import { useElementVisibility } from '@vueuse/core'
+
 const completeHandler = () => {}
+
+const target = useTemplateRef<HTMLDivElement>('target')
+
+const targetIsVisible = useElementVisibility(target)
 </script>
