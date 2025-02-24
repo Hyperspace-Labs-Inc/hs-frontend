@@ -15,8 +15,8 @@
     <div class="p-m mx-auto my-6 max-w-[696px] text-center">{{ $t('hyperspace_an') }}</div>
 
     <div class="flex justify-center gap-2 lg:gap-4">
-      <Btn size="big" w-fit color="gradient-r"  to="/onboarding">{{ $t('tryfree') }}</Btn>
-      <Btn size="big" w-fit color="ghost">{{ $t('learn_more') }}</Btn>
+      <Btn size="big" w-fit color="gradient-r" to="/onboarding">{{ $t('tryfree') }}</Btn>
+      <Btn size="big" w-fit color="ghost" to="#hyper-loop">{{ $t('learn_more') }}</Btn>
     </div>
 
     <div class="mt-14 flex justify-center gap-3 lg:gap-12">

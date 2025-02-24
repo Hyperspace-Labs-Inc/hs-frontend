@@ -19,8 +19,8 @@
       />
 
       <div class="flex gap-4 max-lg:hidden">
-        <Btn color="ghost">{{ $t('login') }}</Btn>
-        <Btn>{{ $t('tryfree') }}</Btn>
+        <Btn color="ghost" to="/sign-in">{{ $t('login') }}</Btn>
+        <Btn to="/onboarding">{{ $t('tryfree') }}</Btn>
       </div>
 
       <button style="outline: 0" class="lg:hidden" @click="isShowMobileMenu = !isShowMobileMenu">
