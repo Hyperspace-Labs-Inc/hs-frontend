@@ -45,6 +45,7 @@ type Props = {
   slotClass?: string
   color?:
     | 'gradient'
+    | 'gradient-r'
     | 'ghost'
     | 'transparent'
     | 'white'
@@ -82,6 +83,8 @@ const colorsMap = {
   ghost: 'bg-transparent ring-2 ring-inset ring-black text-black hover:bg-black hover:text-white',
   transparent: ' ',
   gradient: 'bg-gradient-to-b hover:bg-gradient-to-t from-purple-600 to-purple text-white',
+  'gradient-r':
+    'bg-[linear-gradient(70deg,#6910E0_15%,#B47CFF_83%,#DFF671_121%)] hover:bg-[linear-gradient(230deg,#6910E0_15%,#B47CFF_83%,#DFF671_121%)] text-white',
 }
 
 const emit = defineEmits(['click'])

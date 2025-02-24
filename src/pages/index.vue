@@ -23,6 +23,8 @@
     <FAQ />
 
     <SaveBig />
+
+    <LetTheAi />
   </div>
 </template>
 
@@ -44,4 +46,5 @@ import ThreeSteps from '~/components/front/ThreeSteps.vue'
 import HyperSpaceInYourPocket from '~/components/front/HyperSpaceInYourPocket.vue'
 import FAQ from '~/components/front/FAQ.vue'
 import SaveBig from '~/components/front/SaveBig.vue'
+import LetTheAi from '~/components/front/LetTheAi.vue'
 </script>
