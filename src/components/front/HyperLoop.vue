@@ -5,7 +5,6 @@
       height="100%"
       width="100%"
       :loop="true"
-      renderer="canvas"
       @on-complete="completeHandler"
       class="pointer-events-none select-none"
     />

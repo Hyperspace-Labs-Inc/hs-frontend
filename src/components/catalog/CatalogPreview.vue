@@ -1,9 +1,11 @@
 <template>
   <div class="">
-    <div class="u26m pl-[38px] text-black-700">{{ categoriesMap[selectedType] }}</div>
-    <div class="p12r mt-[10px] max-w-[366px] pl-[38px]">{{ $t('access_wide') }}</div>
+    <div class="u26m pl-[19px] text-black-700 lg:pl-[38px]">{{ categoriesMap[selectedType] }}</div>
+    <div class="p12r mt-[10px] max-w-[366px] pl-[19px] lg:pl-[38px]">{{ $t('access_wide') }}</div>
 
-    <div class="ml-[38px] mt-[22px] flex min-w-0 gap-1 overflow-x-auto overflow-y-hidden">
+    <div
+      class="ml-[19px] mt-4 flex min-w-0 gap-1 overflow-x-auto overflow-y-hidden lg:ml-[38px] lg:mt-[22px]"
+    >
       <Btn
         v-for="type in selectedCategories"
         size="medium"
@@ -31,7 +33,7 @@
     </div>
 
     <div
-      class="flex min-w-0 gap-4 overflow-x-auto overflow-y-hidden rounded-b-[20px] py-6 pb-[54px] pl-[38px]"
+      class="flex min-w-0 gap-4 overflow-x-auto overflow-y-hidden rounded-b-[20px] py-4 pb-[54px] pl-[19px] lg:py-6 lg:pl-[38px]"
     >
       <CatalogCard v-for="model in catalogByType" :key="model.id" v-bind="model" />
     </div>

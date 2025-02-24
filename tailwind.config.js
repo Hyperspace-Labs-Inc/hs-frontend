@@ -77,7 +77,7 @@ export default {
           900: '#E2E2E2',
           950: '#ECECEC',
           1000: '#8C8C8C',
-          1100: '#F6F6F6',
+          1100: '#EBEBEB',
         },
       },
     },

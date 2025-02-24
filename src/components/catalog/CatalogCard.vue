@@ -76,10 +76,9 @@ const systemType = computed(() => props.systemType || props.system)
 
 <style lang="scss">
 .catalog-card {
-  @apply relative flex min-h-[220px] w-[170px] flex-shrink-0 flex-grow-0 cursor-pointer
-  flex-col rounded-[20px] bg-black/20 bg-contain
-  bg-bottom bg-no-repeat
-  shadow-[0_2px_5px_0_rgba(104,104,104,0.10),0_5px_15px_0_rgba(99,99,99,0.20)]
+  @apply relative flex min-h-[220px] w-[200px] flex-shrink-0 flex-grow-0 cursor-pointer flex-col
+  rounded-[20px] bg-black/20 bg-contain bg-bottom
+  bg-no-repeat shadow-[0_2px_5px_0_rgba(104,104,104,0.10),0_5px_15px_0_rgba(99,99,99,0.20)]
   transition hover:scale-[103%];
 
   &--hide {

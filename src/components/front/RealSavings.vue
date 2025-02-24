@@ -1,18 +1,13 @@
 <template>
   <div class="container mt-[96px]">
-    <div class="h2 text-center text-purple">
-      {{ $t('why') }}
-      <div class="text-black">{{ $t('hyperspace') }}?</div>
-    </div>
-
-    <div class="mt-[72px] flex">
+    <div class="flex max-lg:flex-col max-lg:gap-8">
       <div class="flex flex-1 items-center justify-center">
-        <div>
+        <div class="max-lg:text-center">
           <div class="h3" v-html="$t('real')" />
 
-          <div class="p-m mt-6" v-html="$t('you_pay')" />
+          <div class="p-m mt-4 lg:mt-6" v-html="$t('you_pay')" />
 
-          <Btn classes="mt-10" w-fit>{{ $t('start') }}</Btn>
+          <Btn classes="mt-10 max-lg:hidden" w-fit to="/onboarding">{{ $t('start') }}</Btn>
         </div>
       </div>
 
@@ -43,6 +38,8 @@
 
           <input ref="sliderRef" type="range" min="0" max="100" value="50" class="slider" />
         </div>
+
+        <Btn classes="mt-10 mx-auto lg:hidden" w-fit to="/onboarding">{{ $t('start') }}</Btn>
       </div>
     </div>
   </div>

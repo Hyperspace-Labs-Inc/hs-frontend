@@ -84,11 +84,11 @@
   }
 
   .h2 {
-    @apply font-unbounded text-[52px] font-semibold leading-[120%] tracking-[0.52px];
+    @apply font-unbounded text-[30px] font-bold leading-[normal] tracking-[0.6px] lg:text-[52px] lg:font-semibold lg:leading-[120%] lg:tracking-[0.52px];
   }
 
   .h3 {
-    @apply font-unbounded text-[40px] font-medium leading-[normal];
+    @apply font-unbounded text-2xl font-bold leading-[140%] max-lg:tracking-[0.48px] lg:text-[40px] lg:font-medium lg:leading-[normal];
   }
 
   .h4 {
@@ -116,7 +116,11 @@
   }
 
   .u26m {
-    @apply font-unbounded text-[26px] font-medium leading-[normal];
+    @apply font-unbounded text-xl font-medium leading-[normal] lg:text-[26px];
+  }
+
+  .r18 {
+    @apply font-rounded text-lg font-normal leading-[normal] tracking-[0.36px];
   }
 
   .r18m {
@@ -148,11 +152,11 @@
   }
 
   .p-s {
-    @apply font-rounded text-lg font-light leading-[normal] tracking-[0.36px];
+    @apply font-rounded text-base font-light leading-[normal] tracking-[0.32px] lg:text-lg lg:tracking-[0.36px];
   }
 
   .p-m {
-    @apply font-rounded text-xl font-light leading-[normal] tracking-[0.4px];
+    @apply font-rounded text-base font-light leading-[normal] tracking-[0.32px] lg:text-xl lg:tracking-[0.4px];
   }
 
   .header-hero {
@@ -160,7 +164,7 @@
   }
 
   .header-h1 {
-    @apply font-unbounded text-[64px] font-semibold leading-[110%];
+    @apply font-unbounded text-[28px] font-semibold leading-[110%] max-lg:tracking-[0.28px] lg:text-[64px];
   }
 
   .header-h2 {
