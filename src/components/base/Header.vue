@@ -23,15 +23,9 @@
         <Btn>{{ $t('tryfree') }}</Btn>
       </div>
 
-      <Btn
-        :icon="isShowMobileMenu ? 'icon_cross' : 'icon_burger'"
-        color="transparent"
-        size="link"
-        icon-class="text-[40px]"
-        is-icon-only
-        classes="lg:hidden"
-        @click="isShowMobileMenu = !isShowMobileMenu"
-      />
+      <button style="outline: 0" class="lg:hidden" @click="isShowMobileMenu = !isShowMobileMenu">
+        <GIcon :name="isShowMobileMenu ? 'icon_cross' : 'icon_burger'" class="text-[40px]" />
+      </button>
 
       <div
         class="fixed right-0 top-14 flex h-[100vh] w-[100vw] flex-col gap-2 bg-black-100 py-4 transition-all lg:hidden"

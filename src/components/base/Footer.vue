@@ -1,13 +1,13 @@
 <template>
-  <div class="mt-[136px] bg-black py-[145px] text-white">
-    <div class="container px-[112px]">
+  <div class="mt-[112px] bg-black py-[72px] text-white lg:mt-[136px] lg:py-[145px]">
+    <div class="container px-6 lg:px-[112px]">
       <div>
         <NuxtLink :to="localeRoute('/')">
           <GIcon name="icon_logo" class="h-[48px] text-white" is-pass-w-h />
         </NuxtLink>
       </div>
 
-      <div class="mt-14 flex">
+      <div class="mt-14 flex max-lg:flex-col max-lg:gap-14">
         <div class="flex flex-1 flex-col gap-2">
           <NuxtLink v-for="([domain], index) in domains" :key="index" :to="domain.to" class="u20b">
             {{ domain.label }}
@@ -20,7 +20,7 @@
           </NuxtLink>
         </div>
 
-        <div class="flex flex-1 flex-col items-end gap-9">
+        <div class="flex flex-1 flex-col gap-9 lg:items-end">
           <NuxtLink :to="`mailto:${email}`" class="u20b">
             {{ email }}
           </NuxtLink>
@@ -45,7 +45,7 @@
         </div>
       </div>
 
-      <div class="mt-10 flex justify-between">
+      <div class="mt-14 flex justify-between max-lg:flex-col-reverse max-lg:gap-10 lg:mt-10">
         <div class="p-s">{{ copyright }}</div>
         <div class="flex gap-6">
           <NuxtLink to="/terms" class="p-s">{{ $t('terms') }}</NuxtLink>

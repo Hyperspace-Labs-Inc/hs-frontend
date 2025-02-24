@@ -118,7 +118,7 @@
     border-purple bg-white px-20 py-3
     before:absolute before:-bottom-4 before:left-4
     before:z-[-1] before:h-[400px] before:w-full
-    before:bg-[url(/assets/images/big.webp)] before:bg-[100%_auto]
+    before:bg-[url(/assets/images/big.webp)] before:bg-[length:100%_100%]
     before:bg-bottom before:bg-no-repeat before:content-[''];
 
     &-mobile {

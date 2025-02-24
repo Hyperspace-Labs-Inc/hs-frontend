@@ -120,7 +120,7 @@
   }
 
   .u20b {
-    @apply font-unbounded text-xl font-bold leading-[140%] tracking-[0.4px];
+    @apply font-unbounded text-base font-bold leading-[140%] tracking-[0.32px] lg:text-xl lg:tracking-[0.4px];
   }
 
   .u26m {
