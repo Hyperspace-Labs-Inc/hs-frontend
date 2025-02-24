@@ -5,7 +5,7 @@
     :to="to"
     :target="target"
     style="outline: 0"
-    @click="emit('click', event)"
+    @click="$emit('click', event)"
   >
     <GIcon
       v-if="icon"
@@ -35,11 +35,12 @@
 
 <script setup lang="ts">
 import { twMerge } from 'tailwind-merge'
+import { $ } from 'execa'
 
 type Props = {
   icon?: string
   iconPrepend?: string
-  iconPrependClass?: string
+  iconPrependClass?: string | object | []
   iconClass?: string
   size?: 'small' | 'default' | 'big' | 'medium' | 'link'
   slotClass?: string

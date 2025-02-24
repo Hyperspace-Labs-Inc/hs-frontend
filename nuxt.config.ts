@@ -70,6 +70,7 @@ export default defineNuxtConfig({
       store: process.env.APP_APPSTORE,
       facebook: process.env.APP_FACEBOOK,
       instagram: process.env.APP_INSTAGRAM,
+      tiktok: process.env.APP_TIKTOK,
       copyright: process.env.APP_COPYRIGHT,
       mailFrom: process.env.APP_MAIL_FROM,
       mailTo: process.env.APP_MAIL_TO,

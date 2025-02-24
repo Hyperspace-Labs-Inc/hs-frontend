@@ -30,39 +30,18 @@
       },
     }"
   >
-    <UButton
-      size="lg"
-      variant="ghost"
-      color="gray"
-      class="shadow-none transition-all"
-      :label="domain"
-      trailing
-      :trailing-icon="
-        isShowMenu ? 'i-heroicons-chevron-up-20-solid' : 'i-heroicons-chevron-down-20-solid'
-      "
-      :ui="{
-        base: 'focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:cursor-not-allowed aria-disabled:opacity-75 flex-shrink-0',
-        size: {
-          lg: 'text-lg font-medium',
-        },
-        gap: {
-          lg: 'gap-x-2',
-        },
-        color: {
-          gray: {
-            ghost:
-              'px-2 !text-black-900 transition-all bg-transparent ring-0 hover:ring-0 focus-visible:ring-0',
-          },
-        },
-        icon: {
-          base: 'flex-shrink-0 transition-all',
-          loading: 'animate-spin',
-          size: {
-            lg: 'h-5 w-5',
-          },
-        },
-      }"
-    />
+    <template #item="{ item }">
+      <NuxtLink :to="item.to">{{ item.label }}</NuxtLink>
+    </template>
+
+    <button class="flex items-center gap-2 text-lg font-medium" style="outline: 0">
+      {{ domain }}
+      <GIcon
+        name="icon_down"
+        class="text-xl transition-all"
+        :class="{ 'rotate-180': isShowMenu }"
+      />
+    </button>
   </UDropdown>
 </template>
 
@@ -73,45 +52,37 @@ const domain = ref(t('domains'))
 
 const isShowMenu = ref(false)
 
-const domains = [
+const domains = useState('domains', () => [])
+
+domains.value = [
   [
     {
       label: t('images'),
-      click: () => {
-        navigateTo('/ai-image-generator')
-      },
+      to: '/ai-image-generator',
     },
   ],
   [
     {
       label: t('chatbots'),
-      click: () => {
-        navigateTo('/chatbots-ai')
-      },
+      to: '/chatbots-ai',
     },
   ],
   [
     {
       label: t('text'),
-      click: () => {
-        navigateTo('/chatbots-ai')
-      },
+      to: '/ai-text-generator',
     },
   ],
   [
     {
       label: t('music'),
-      click: () => {
-        navigateTo('/chatbots-ai')
-      },
+      to: '/music-generation-ai',
     },
   ],
   [
     {
       label: t('voices'),
-      click: () => {
-        navigateTo('/chatbots-ai')
-      },
+      to: '/voice-generation-ai',
     },
   ],
 ]

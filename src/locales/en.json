@@ -26,6 +26,10 @@
   "enhance": "Enhance your efficiency",
   "enjoy": "Enjoy results!",
   "everything": "Everything",
+  "faqtitle": "FAQ",
+  "blog": "Blog",
+  "contact": "Contact Us",
+  "ai_tools": "AI Tools",
   "faq": [
     {
       "question": "How does HyperSpace work?",
@@ -105,5 +109,9 @@
   "work": "work",
   "you_pay": "You pay for one subscription instead of many.<br/>Save your money for yourself.",
   "your": "Your",
-  "more_models": "more models"
+  "more_models": "more models",
+  "terms": "Terms & Conditions",
+  "privacy": "Privacy Policy",
+
+  "": ""
 }
