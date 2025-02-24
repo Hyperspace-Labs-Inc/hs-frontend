@@ -92,7 +92,7 @@
   }
 
   .h4 {
-    @apply font-unbounded text-[32px] font-bold leading-[normal] tracking-[0.64px];
+    @apply font-unbounded text-lg font-bold leading-[140%] tracking-[0.36px] lg:text-[32px] lg:leading-[normal] lg:tracking-[0.64px];
   }
 
   .h5 {

@@ -1,8 +1,8 @@
 <template>
-  <div class="container py-[120px]">
-    <div class="flex gap-8 px-[96px]">
+  <div class="container py-[72px] lg:py-[120px]">
+    <div class="flex gap-8 max-lg:flex-col lg:px-[96px]">
       <div class="flex flex-1 flex-col gap-11">
-        <div class="h2">
+        <div class="h2 max-lg:text-center">
           {{ $t('frequently') }}
         </div>
       </div>
