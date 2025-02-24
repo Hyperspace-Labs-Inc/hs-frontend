@@ -58,31 +58,31 @@ domains.value = [
   [
     {
       label: t('images'),
-      to: '/ai-image-generator',
+      to: 'https://hyperspace.ai/ai-image-generator',
     },
   ],
   [
     {
       label: t('chatbots'),
-      to: '/chatbots-ai',
+      to: 'https://hyperspace.ai/chatbots-ai',
     },
   ],
   [
     {
       label: t('text'),
-      to: '/ai-text-generator',
+      to: 'https://hyperspace.ai/ai-text-generator',
     },
   ],
   [
     {
       label: t('music'),
-      to: '/music-generation-ai',
+      to: 'https://hyperspace.ai/music-generation-ai',
     },
   ],
   [
     {
       label: t('voices'),
-      to: '/voice-generation-ai',
+      to: 'https://hyperspace.ai/voice-generation-ai',
     },
   ],
 ]
