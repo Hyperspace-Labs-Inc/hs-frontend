@@ -9,14 +9,14 @@
       <div class="flex gap-5 max-lg:hidden">
         <button
           style="outline: 0"
-          class="flex h-14 w-14 items-center justify-center rounded-full bg-black-100"
+          class="flex h-14 w-14 items-center justify-center rounded-full bg-black-100 transition-all hover:bg-green"
           @click="goPrevHandler"
         >
           <GIcon name="icon_left" />
         </button>
         <button
           style="outline: 0"
-          class="flex h-14 w-14 items-center justify-center rounded-full bg-black-100"
+          class="flex h-14 w-14 items-center justify-center rounded-full bg-black-100 transition-all hover:bg-green"
           @click="goNextHandler"
         >
           <GIcon name="icon_right" />

@@ -79,12 +79,13 @@ const sizesMap = {
 
 const colorsMap = {
   grey: 'bg-black-800 text-black-700',
-  default: 'bg-black text-white hover:bg-white hover:ring-2 ring-inset ring-black hover:text-black',
-  ghost: 'bg-transparent ring-2 ring-inset ring-black text-black hover:bg-black hover:text-white',
+  default: 'bg-black text-white hover:bg-[linear-gradient(77deg,#6910E0_22.37%,#B47CFF_100%)] ',
+  ghost:
+    'bg-transparent ring-2 ring-inset ring-black text-black hover:ring-purple hover:text-purple',
   transparent: ' ',
   gradient: 'bg-gradient-to-b hover:bg-gradient-to-t from-purple-600 to-purple text-white',
   'gradient-r':
-    'bg-[linear-gradient(70deg,#6910E0_15%,#B47CFF_83%,#DFF671_121%)] hover:bg-[linear-gradient(230deg,#6910E0_15%,#B47CFF_83%,#DFF671_121%)] text-white',
+    'bg-[linear-gradient(70deg,#6910E0_15%,#B47CFF_83%,#DFF671_121%)] hover:bg-[linear-gradient(81deg,#6910E0_-3.57%,#B47CFF_60.94%,#DFF671_97.22%)] text-white',
 }
 
 const emit = defineEmits(['click'])
