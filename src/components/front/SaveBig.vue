@@ -8,32 +8,75 @@
       </div>
 
       <div class="u17b mt-6 flex items-center justify-center gap-4 lg:hidden">
-        <img src="/assets/images/switch.svg" alt="" class="w-[52px] object-contain" />
+        <UToggle
+          v-model="selected"
+          size="xl"
+          :ui="{
+            base: 'items-center !flex',
+            size: {
+              xl: 'h-7 w-12',
+            },
+            active: 'bg-purple-700',
+            container: {
+              active: {
+                xl: 'translate-x-[22px]',
+              },
+              inactive: 'translate-x-1 rtl:-translate-x-1',
+              size: {
+                xl: 'h-[22px] w-[22px]',
+              },
+            },
+          }"
+        />
 
         {{ $t('hyperspace') }}
       </div>
 
-      <div class="save-big--bg-mobile">
-        <img src="/assets/images/hs.webp" alt="" class="w-[81px] object-contain" />
+      <div
+        class="transition-all"
+        :class="{ 'save-big--bg-mobile': selected, 'save-big--bg-unselectmobile': !selected }"
+      >
+        <img v-if="selected" src="/assets/images/hs.webp" alt="" class="w-[81px] object-contain" />
 
         <div class="mt-6 flex flex-col gap-4">
-          <div class="flex justify-between">
-            <div class="p-m">{{ $t('cost_title') }}</div>
-            <div class="h4">$19.99</div>
+          <div v-if="!selected" class="text-purple">
+            <div class="font-rounded text-xl font-light tracking-[0.4px]">{{ $t('Buying') }}</div>
+            <div class="font-unbounded text-[19px] font-bold leading-[140%] tracking-[0.38px]">
+              {{ $t('separate_ai') }}
+            </div>
+          </div>
+          <div class="mt-2 flex justify-between">
+            <div class="p-m">
+              <template v-if="selected">{{ $t('cost_title') }}</template>
+              <template v-else>{{ $t('cost') }}</template>
+            </div>
+            <div class="h4">
+              <template v-if="selected">$19.99</template>
+              <template v-else>$20 {{ $t('each') }}</template>
+            </div>
           </div>
 
-          <Divider class="bg-black-1100" />
+          <Divider class="bg-black-1100" :class="{ '!bg-black-1300': !selected }" />
 
           <div class="flex justify-between">
             <div class="p-m">{{ $t('models_included') }}</div>
-            <div class="h4">1 000 +</div>
+            <div class="h4">
+              <template v-if="selected">1 000 +</template>
+              <template v-else>1</template>
+            </div>
           </div>
 
-          <Divider class="bg-black-1100" />
+          <Divider class="bg-black-1100" :class="{ '!bg-black-1300': !selected }" />
 
-          <div class="u14b flex flex-col items-end text-right">
-            <div class="h3 text-gradient">$19.99</div>
-            {{ $t('for_all') }}
+          <div class="u14b flex flex-col items-end text-right mb-4">
+            <template v-if="selected">
+              <div class="h3 text-gradient">$19.99</div>
+              {{ $t('for_all') }}
+            </template>
+            <template v-else>
+              <div class="h3  text-purple">$200+</div>
+              {{ $t('for') }} 10 {{ $t('models') }}
+            </template>
           </div>
         </div>
         <img
@@ -103,12 +146,16 @@
         {{ $t('month') }}
       </div>
 
-      <Btn classes="lg:w-fit lg:mx-auto mt-6" to="https://hyperspace.ai/onboarding">{{ $t('start_free') }}</Btn>
+      <Btn classes="lg:w-fit lg:mx-auto mt-6" to="https://hyperspace.ai/onboarding">
+        {{ $t('start_free') }}
+      </Btn>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const selected = ref(true)
+</script>
 
 <style lang="scss" scoped>
 .save-big {
@@ -122,11 +169,15 @@
     before:bg-bottom before:bg-no-repeat before:content-[''];
 
     &-mobile {
-      @apply relative mt-8 rounded-[32px] bg-white p-6 ring-[3px] ring-inset ring-purple 
+      @apply relative mt-8 rounded-[32px] bg-white p-6 ring-[3px]  ring-inset ring-purple
       before:absolute before:-bottom-4 before:left-0 before:z-[-1]
       before:h-[200px] before:w-full before:bg-[url(/assets/images/big.webp)]
       before:bg-[100%_auto] before:bg-bottom
       before:bg-no-repeat before:content-[''] lg:hidden;
+    }
+
+    &-unselectmobile {
+      @apply relative mt-8 rounded-[32px] bg-black-950 p-6 ring-[3px] ring-inset ring-black-950  lg:hidden;
     }
   }
 }

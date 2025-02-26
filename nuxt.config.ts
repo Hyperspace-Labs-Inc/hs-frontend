@@ -44,6 +44,7 @@ export default defineNuxtConfig({
     },
   },
   modules: [
+    '@nuxtjs/color-mode',
     '@nuxt/ui',
     'nuxt-icons',
     '@nuxtjs/tailwindcss',
@@ -62,6 +63,9 @@ export default defineNuxtConfig({
     locales: [{ code: 'en', label: 'English' }],
     defaultLocale: 'en',
     vueI18n: './i18n.config.ts', // if you are using custom path, default
+  },
+  colorMode: {
+    preference: 'light',
   },
   runtimeConfig: {
     public: {

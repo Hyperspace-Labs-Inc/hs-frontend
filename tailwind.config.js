@@ -57,6 +57,7 @@ export default {
           400: '#6910E0',
           500: '#6910E0',
           600: '#B47CFF',
+          700: '#8A2DFF',
         },
         blue: {
           DEFAULT: '#0685F8',
@@ -79,6 +80,7 @@ export default {
           1000: '#8C8C8C',
           1100: '#EBEBEB',
           1200: '#D9D9D9',
+          1300: '#DBDBDB',
         },
       },
     },
