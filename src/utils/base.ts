@@ -12,7 +12,7 @@ export function format1k(num) {
   }
 }
 
-const toggleElementInArray = (array, element) => {
+export const toggleElementInArray = (array, element) => {
   const index = array.value.indexOf(element)
   if (index === -1) {
     array.value.push(element) // Add if not exists

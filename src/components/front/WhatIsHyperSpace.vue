@@ -59,7 +59,7 @@
         <CatalogPreview />
 
         <div
-          class="r18m -mx-4 mb-8 flex max-w-[424px] items-center justify-between rounded-[32px] bg-white py-[7px] pl-8 pr-2 text-black/45 shadow-[0_4px_44px_0_rgba(0,0,0,0.05)] lg:mx-auto lg:-mb-6 lg:w-full"
+          class="r18m -mx-4 mb-8 mt-4 flex max-w-[424px] items-center justify-between rounded-[32px] bg-white py-[7px] pl-8 pr-2 text-black/45 shadow-[0_4px_44px_0_rgba(0,0,0,0.05)] lg:mx-auto lg:-mb-6 lg:w-full"
         >
           {{ $t('hi') }}
 

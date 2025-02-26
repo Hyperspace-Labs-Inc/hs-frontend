@@ -5,7 +5,7 @@
     <HeaderDomain />
 
     <ClientOnly>
-      <NuxtLink target="_blank" :to="url" class="t18m">ccc {{ $t('mobile_app') }}</NuxtLink>
+      <NuxtLink target="_blank" :to="url" class="t18m">{{ $t('mobile_app') }}</NuxtLink>
     </ClientOnly>
   </div>
 </template>

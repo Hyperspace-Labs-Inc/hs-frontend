@@ -33,14 +33,16 @@
         </Btn>
       </div>
 
-      <div class="flex-1 max-lg:text-center lg:p-[96px]">
-        <div class="h3" v-html="$t('all_tools')" />
+      <div class="flex-1">
+        <div class="max-lg:text-center lg:p-[96px]">
+          <div class="h3" v-html="$t('all_tools')" />
 
-        <div class="p-m mt-4 lg:mt-6" v-html="$t('we_offer')" />
+          <div class="p-m mt-4 lg:mt-6" v-html="$t('we_offer')" />
 
-        <Btn classes="mt-10 max-lg:hidden" w-fit to="https://hyperspace.ai/onboarding">
-          {{ $t('try_our') }}
-        </Btn>
+          <Btn classes="mt-10 max-lg:hidden" w-fit to="https://hyperspace.ai/onboarding">
+            {{ $t('try_our') }}
+          </Btn>
+        </div>
       </div>
     </div>
   </div>

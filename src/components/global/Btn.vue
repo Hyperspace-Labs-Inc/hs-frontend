@@ -35,7 +35,6 @@
 
 <script setup lang="ts">
 import { twMerge } from 'tailwind-merge'
-import { $ } from 'execa'
 
 type Props = {
   icon?: string
@@ -74,7 +73,7 @@ const sizesMap = {
   link: 'h-auto w-auto p-0 m-0',
   big: 'h-14',
   default: '',
-  small: 'h-8 w-full max-w-[180px] px-6 text-base',
+  small: 'h-12',
   medium: 'rounded-full px-3 h-11 text-sm font-semibold tracking-[-0.24px]',
 }
 
@@ -94,7 +93,7 @@ const componentType = computed(() => (props.to ? resolveComponent('NuxtLink') : 
 
 const computedClasses = computed(() => {
   const classes = [
-    'hover:opacity-80 active:scale-105 transition-all whitespace-nowrap relative no-underline cursor-pointer appearance-none flex items-center gap-2 rounded-2xl text-center text-[17px] h-12 px-10 font-semibold',
+    'hover:opacity-80 active:scale-105 transition-all whitespace-nowrap relative no-underline cursor-pointer appearance-none flex items-center gap-2 rounded-2xl text-center text-[17px] h-14 px-10 font-semibold',
   ]
 
   classes.push(props.disabled ? 'opacity-80 pointer-events-none' : '')

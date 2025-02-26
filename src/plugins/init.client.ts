@@ -5,8 +5,8 @@ export default defineNuxtPlugin({
 
     // const { getReviews } = useReviews()
 
-    getCatalog()
+    //  getCatalog()
 
-   // getReviews()
+    // getReviews()
   },
 })
