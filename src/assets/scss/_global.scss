@@ -14,9 +14,6 @@ body {
 }
 
 .no-scroll {
-  overscroll-behavior: none;
-  scroll-behavior: auto;
-
   &::-webkit-scrollbar {
     width: 0 !important;
     height: 0 !important;

@@ -1,17 +1,33 @@
 <template>
   <div ref="target" class="container mt-[96px]">
     <div class="flex max-lg:flex-col-reverse max-lg:gap-8">
-      <div class="flex-1">
-        <vue3-lottie
-          animation-link="/assets/animations/graph.json"
-          height="100%"
-          width="100%"
-          :loop="true"
-          @on-complete="completeHandler"
-          class="pointer-events-none select-none"
-        />
+      <div class="relative flex-1">
+        <Transition name="fade" mode="in-out">
+          <img
+            src="/assets/images/animations/graph.webp"
+            alt="Loading animation"
+            class="pointer-events-none w-full select-none object-contain"
+            :class="{ '!invisible': !isLoading }"
+          />
+        </Transition>
 
-        <Btn classes="mt-10 mx-auto lg:hidden" to="https://hyperspace.ai/onboarding" w-fit>{{ $t('boost') }}</Btn>
+        <Transition name="fade" mode="in-out">
+          <vue3-lottie
+            ref="animationRef"
+            v-show="!isLoading"
+            animation-link="/assets/animations/graph.json"
+            height="100%"
+            width="100%"
+            :loop="false"
+            :auto-play="false"
+            @on-animation-loaded="isLoading = false"
+            class="width-full pointer-events-none absolute left-0 top-0 select-none"
+          />
+        </Transition>
+
+        <Btn classes="mt-10 mx-auto lg:hidden" to="https://hyperspace.ai/onboarding" w-fit>
+          {{ $t('boost') }}
+        </Btn>
       </div>
 
       <div class="flex-1 max-lg:text-center lg:p-[96px]">
@@ -19,7 +35,9 @@
 
         <div class="p-m mt-4 lg:mt-10" v-html="$t('with_ai')" />
 
-        <Btn classes="mt-10 max-lg:hidden" to="https://hyperspace.ai/onboarding" w-fit>{{ $t('boost') }}</Btn>
+        <Btn classes="mt-10 max-lg:hidden" to="https://hyperspace.ai/onboarding" w-fit>
+          {{ $t('boost') }}
+        </Btn>
       </div>
     </div>
   </div>
@@ -30,9 +48,32 @@ import { Vue3Lottie } from 'vue3-lottie'
 
 import { useElementVisibility } from '@vueuse/core'
 
-const target = useTemplateRef<HTMLDivElement>('target')
+const target = ref<HTMLElement | null>(null)
+
+const animationRef = ref<HTMLElement | null>(null)
 
 const targetIsVisible = useElementVisibility(target)
 
-const completeHandler = () => {}
+const isLoading = ref(true)
+
+watch(targetIsVisible, () => {
+  animationRef.value?.play()
+})
+
+watch(isLoading, () => {
+  if (targetIsVisible.value) {
+    animationRef.value?.play()
+  }
+})
 </script>
+
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s ease-in-out;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0.5;
+}
+</style>
