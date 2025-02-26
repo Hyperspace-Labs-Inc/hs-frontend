@@ -1,5 +1,5 @@
 <template>
-  <div ref="target" class="relative pt-[63px]" id="hyper-loop">
+  <div ref="target" class="relative mx-auto w-full max-w-[1440px] pt-[63px]" id="hyper-loop">
     <Transition name="fade" mode="in-out">
       <img
         src="/assets/images/animations/hyperloop.webp"
