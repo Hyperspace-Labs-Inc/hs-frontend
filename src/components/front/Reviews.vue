@@ -27,23 +27,29 @@
     <div
       ref="scrollContainerRef"
       class="no-scroll mt-12 flex min-w-0 items-start gap-4 overflow-x-auto"
+      @mouseenter="stopAutoScroll"
+      @mouseleave="startAutoScroll"
+      @touchstart="stopAutoScroll"
+      @touchend="startAutoScroll"
     >
       <ReviewItem v-for="review in reviews" :key="review.id" v-bind="review" />
     </div>
 
     <div class="mt-6 flex justify-center gap-5 lg:hidden">
       <button
-        v-if="isShowPrev && isSlider"
+        v-if="isSlider"
         style="outline: 0"
         class="flex h-10 w-10 items-center justify-center rounded-full bg-black-100"
+        @click="goPrevHandler"
       >
         <GIcon name="icon_left" />
       </button>
 
       <button
-        v-if="isShowNext && isSlider"
+        v-if="isSlider"
         style="outline: 0"
         class="flex h-10 w-10 items-center justify-center rounded-full bg-black-100"
+        @click="goNextHandler"
       >
         <GIcon name="icon_right" />
       </button>
@@ -52,7 +58,7 @@
 </template>
 
 <script setup lang="ts">
-import { useScroll, useThrottleFn } from '@vueuse/core'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 import ReviewItem from '~/components/reviews/ReviewItem.vue'
 
@@ -60,41 +66,85 @@ const scrollContainerRef = ref<HTMLElement | null>(null)
 
 const { reviews } = useReviews()
 
-const isShowNext = ref(false)
-
 const isSlider = computed(() => reviews.value?.length > 1)
 
-const isShowPrev = ref(false)
+// Бесконечная автопрокрутка
+let autoScroll: number | null = null
 
-const { x: scrollLeft, isScrolling } = useScroll(scrollContainerRef, { behavior: 'smooth' })
+let interactionTimeout: number | null = null
 
-// Функция для обновления состояния кнопок с throttling
-const updateButtons = useThrottleFn(() => {
+const startAutoScroll = () => {
+  stopAutoScroll() // Удаляем старый интервал, если был
+  autoScroll = window.requestAnimationFrame(scrollStep)
+}
+
+const stopAutoScroll = () => {
+  if (autoScroll) {
+    window.cancelAnimationFrame(autoScroll)
+    autoScroll = null
+  }
+  if (interactionTimeout) {
+    clearTimeout(interactionTimeout)
+    interactionTimeout = null
+  }
+}
+
+// Перезапуск автоскролла через 4 сек после взаимодействия
+const resetAutoScroll = () => {
+  stopAutoScroll()
+  interactionTimeout = setTimeout(startAutoScroll, 4000)
+}
+
+// Шаг прокрутки (бесконечно)
+const scrollStep = () => {
   if (!scrollContainerRef.value) return
 
-  const { scrollWidth, clientWidth } = scrollContainerRef.value
+  scrollContainerRef.value.scrollLeft += 1 // Скорость скролла
 
-  isShowPrev.value = scrollLeft.value > 0
-  isShowNext.value = scrollLeft.value + clientWidth < scrollWidth - 1
-}, 200)
+  // Если дошли до конца первой копии, переносим обратно к началу
+  if (scrollContainerRef.value.scrollLeft >= scrollContainerRef.value.scrollWidth / 2) {
+    scrollContainerRef.value.scrollLeft = 0
+  }
 
-watch(scrollLeft, updateButtons)
+  if (autoScroll) {
+    autoScroll = window.requestAnimationFrame(scrollStep)
+  }
+}
 
+// Ручное перелистывание (с остановкой автоскролла)
 const goPrevHandler = () => {
   if (!scrollContainerRef.value) return
+  stopAutoScroll()
   scrollContainerRef.value.scrollBy({
     left: -scrollContainerRef.value.clientWidth,
     behavior: 'smooth',
   })
+  resetAutoScroll()
 }
 
 const goNextHandler = () => {
   if (!scrollContainerRef.value) return
+  stopAutoScroll()
   scrollContainerRef.value.scrollBy({
     left: scrollContainerRef.value.clientWidth,
     behavior: 'smooth',
   })
+  resetAutoScroll()
 }
 
-onMounted(updateButtons)
+// Запускаем автопрокрутку при загрузке
+onMounted(startAutoScroll)
+
+// Останавливаем при размонтировании
+onUnmounted(stopAutoScroll)
 </script>
+
+<style scoped>
+.no-scroll {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scroll::-webkit-scrollbar {
+  display: none;
+}
+</style>

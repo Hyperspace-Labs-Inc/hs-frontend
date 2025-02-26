@@ -2,17 +2,17 @@ import { ref } from 'vue'
 
 export type Model = {
   id: number
-  price: number
-  slug: string
-  newSlug: string
-  type: string
-  title: string
-  description: string
-  usage: string
-  system: string
-  cover: null | string
-  logo: string
-  config: {
+  price?: number
+  slug?: string
+  newSlug?: string
+  type?: string
+  title?: string
+  description?: string
+  usage?: string
+  system?: string
+  cover?: null | string
+  logo?: string
+  config?: {
     name: string
     role: string
     helpsWith: string
@@ -25,7 +25,7 @@ export type Model = {
     supports_stream: boolean
     supports_describe_image: boolean
   }
-  media: {
+  media?: {
     id: number
     type: string
     thumbnail: string
@@ -34,12 +34,12 @@ export type Model = {
     width: null | number
     height: null | number
   }[]
-  settings: {
+  settings?: {
     name: string
     role: string
     message: string
   }
-  categories: {
+  categories?: {
     id: number
     name: string
     title: null
@@ -55,11 +55,11 @@ export type Model = {
     icon: null | string
     order: number
   }[]
-  counts: {
+  counts?: {
     usage: number
     views: number
   }
-  rating: {
+  rating?: {
     avg: number
   }
 }
