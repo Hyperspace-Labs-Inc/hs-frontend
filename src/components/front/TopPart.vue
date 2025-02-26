@@ -21,7 +21,7 @@
 
     <div class="mt-14 flex justify-center gap-3 lg:gap-12">
       <GIcon name="chatgpt" class="text-[32px]" />
-      <GIcon name="star" class="text-[32px]" />
+      <GIcon name="gemini" class="text-[32px]" />
       <GIcon name="endless" class="text-[32px]" />
       <GIcon name="snow" class="text-[32px]" />
       <GIcon name="midjourney" class="text-[32px]" />
