@@ -10,11 +10,11 @@
         <div class="flex gap-8 max-lg:order-1">
           <GIcon name="qr" class="flex-shrink-0 text-[108px] max-lg:hidden" />
 
-          <div class="flex lg:flex-col gap-3 lg:gap-4">
-            <NuxtLink>
+          <div class="flex gap-3 lg:flex-col lg:gap-4">
+            <NuxtLink :to="store" target="_blank">
               <img src="/assets/images/apple.webp" class="lg:w-[135px]" alt="" />
             </NuxtLink>
-            <NuxtLink>
+            <NuxtLink :to="google" target="_blank">
               <img src="/assets/images/google.webp" class="lg:w-[152px]" alt="" />
             </NuxtLink>
           </div>
@@ -33,5 +33,5 @@
 </template>
 
 <script setup lang="ts">
-import CatalogPreview from '~/components/catalog/CatalogPreview.vue'
+const { store, google } = useRuntimeConfig()?.public || {}
 </script>

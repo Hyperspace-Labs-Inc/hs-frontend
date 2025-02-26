@@ -4,12 +4,18 @@
   >
     <HeaderDomain />
 
-    <NuxtLink target="_blank" :to="store" class="t18m">{{ $t('mobile_app') }}</NuxtLink>
+    <ClientOnly>
+      <NuxtLink target="_blank" :to="url" class="t18m">ccc {{ $t('mobile_app') }}</NuxtLink>
+    </ClientOnly>
   </div>
 </template>
 
 <script setup lang="ts">
 import HeaderDomain from '~/components/base/HeaderDomain.vue'
 
-const { store } = useRuntimeConfig()?.public || {}
+const { store, google } = useRuntimeConfig()?.public || {}
+
+const isAndroid = computed(() => /android/i.test(navigator?.userAgent))
+
+const url = computed(() => (isAndroid.value ? google : store))
 </script>

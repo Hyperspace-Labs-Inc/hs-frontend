@@ -44,14 +44,16 @@
 
         <Divider class="mx-6 my-3 bg-black-1100" />
 
-        <NuxtLink
-          target="_blank"
-          :to="store"
-          class="r18 flex h-[49px] items-center justify-between px-6 transition-all hover:bg-black/10"
-        >
-          {{ $t('mobile_app') }}
-          <GIcon name="icon_right" />
-        </NuxtLink>
+        <ClientOnly>
+          <NuxtLink
+            target="_blank"
+            :to="url"
+            class="r18 flex h-[49px] items-center justify-between px-6 transition-all hover:bg-black/10"
+          >
+            {{ $t('mobile_app') }}
+            <GIcon name="icon_right" />
+          </NuxtLink>
+        </ClientOnly>
       </div>
     </div>
   </div>
@@ -66,7 +68,11 @@ const { y } = useScroll(window)
 
 const localeRoute = useLocaleRoute()
 
-const { store } = useRuntimeConfig()?.public || {}
+const { store, google } = useRuntimeConfig()?.public || {}
+
+const isAndroid = computed(() => /android/i.test(navigator?.userAgent))
+
+const url = computed(() => (isAndroid.value ? google : store))
 
 const isStickied = useState('isStickied', () => false)
 

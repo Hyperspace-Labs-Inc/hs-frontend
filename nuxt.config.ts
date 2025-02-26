@@ -68,6 +68,7 @@ export default defineNuxtConfig({
       vk: process.env.APP_VK,
       blog: process.env.APP_BLOG,
       store: process.env.APP_APPSTORE,
+      google: process.env.APP_GOOGLESTORE,
       facebook: process.env.APP_FACEBOOK,
       instagram: process.env.APP_INSTAGRAM,
       tiktok: process.env.APP_TIKTOK,
