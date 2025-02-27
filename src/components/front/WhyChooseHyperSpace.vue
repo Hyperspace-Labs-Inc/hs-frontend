@@ -6,7 +6,7 @@
       <div class="text-black">{{ $t('hyperspace') }}?</div>
     </div>
 
-    <div class="mt-14 flex max-lg:flex-col-reverse max-lg:gap-6 lg:mt-[72px]">
+    <div class="mt-14 flex gap-8 max-lg:flex-col-reverse max-lg:gap-6 lg:mt-[72px]">
       <div class="relative flex-1">
         <Transition name="fade" mode="in-out">
           <img

@@ -1,6 +1,6 @@
 <template>
   <div ref="target" class="container mt-[96px]">
-    <div class="flex max-lg:flex-col-reverse max-lg:gap-8">
+    <div class="flex gap-8 max-lg:flex-col-reverse">
       <div class="relative flex-1">
         <Transition name="fade" mode="in-out">
           <img

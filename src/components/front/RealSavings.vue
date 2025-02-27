@@ -1,6 +1,6 @@
 <template>
   <div class="container mt-[96px]">
-    <div class="flex max-lg:flex-col max-lg:gap-8">
+    <div class="flex max-lg:flex-col gap-8">
       <div class="flex flex-1 items-center justify-center">
         <div class="max-lg:text-center">
           <div class="h3" v-html="$t('real')" />
