@@ -29,11 +29,18 @@ const animationRef = ref()
 
 const { y } = useWindowScroll()
 
-onMounted(() => {
-  animationRef.value.addEventListener('rendered', () => {
-    isLoaded.value = true
-  })
-})
+watch(
+  () => animationRef.value,
+  init => {
+    if (!init) {
+      return
+    }
+
+    animationRef.value?.addEventListener?.('rendered', () => {
+      isLoaded.value = true
+    })
+  }
+)
 
 watch(y, scrollY => {
   if (!animationRef.value) {
