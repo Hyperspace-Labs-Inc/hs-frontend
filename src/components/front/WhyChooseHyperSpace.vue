@@ -19,11 +19,13 @@
 
         <Transition name="fade" mode="in-out">
           <vue3-lottie
+            ref="animationRef"
             v-show="!isLoading"
             animation-link="/assets/animations/models.json"
             height="100%"
             width="100%"
-            :loop="true"
+            :auto-play="false"
+            :loop="false"
             @on-animation-loaded="isLoading = false"
             class="width-full pointer-events-none absolute left-0 top-0 select-none"
           />
@@ -51,13 +53,27 @@
 <script lang="ts" setup>
 import { Vue3Lottie } from 'vue3-lottie'
 
-import { useElementVisibility } from '@vueuse/core'
+import { useElementVisibility, useWindowScroll } from '@vueuse/core'
 
 const target = ref<HTMLElement | null>(null)
 
 const targetIsVisible = useElementVisibility(target)
 
 const isLoading = ref(true)
+
+const animationRef = ref()
+
+const { y } = useWindowScroll()
+
+watch(y, scrollY => {
+  if (animationRef.value) {
+    const scrollPercentage = scrollY / (document.documentElement.scrollHeight - window.innerHeight)
+
+    console.warn('scrollPercentage', animationRef.value.getDuration() * scrollPercentage)
+
+    animationRef.value.goToAndStop(animationRef.value.getDuration() * scrollPercentage, true)
+  }
+})
 </script>
 
 <style scoped>

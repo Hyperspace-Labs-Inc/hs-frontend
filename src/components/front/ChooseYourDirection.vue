@@ -18,6 +18,12 @@
           :key="index"
           :to="domain.to"
           class="domain-item"
+          :class="{ hovered: hoveredIndex !== null && hoveredIndex !== index }"
+          v-element-hover="
+            isHover => {
+              hoveredIndex = isHover ? index : null
+            }
+          "
         >
           <img
             :src="`/assets/images/choose/${domain.label?.toLowerCase?.()}.webp`"
@@ -49,7 +55,11 @@
 </template>
 
 <script setup lang="ts">
+import { vElementHover } from '@vueuse/components'
+
 const domains = useState('domains', () => [])
+
+const hoveredIndex = ref<number | null>(null)
 </script>
 
 <style scoped lang="scss">
@@ -60,7 +70,7 @@ const domains = useState('domains', () => [])
     @apply transition-all;
   }
 
-  &:hover {
+  &.hovered {
     @apply text-black #{!important};
 
     img {

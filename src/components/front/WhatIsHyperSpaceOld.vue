@@ -1,7 +1,7 @@
 <template>
   <div class="container py-20 lg:py-[120px]">
     <div class="flex gap-8 max-lg:flex-col lg:gap-[88px]">
-      <div class="w-full max-w-[512px]">
+      <div class="flex-1">
         <div class="h2 max-lg:text-center">
           {{ $t('what_is') }}
           <br />
@@ -17,27 +17,27 @@
 
           <div class="flex">
             <img
-              src="/assets/images/trusted/01.webp"
+              src="/assets/images/trusted/01.jpeg"
               alt=""
               class="relative block h-12 w-12 rounded-full border-[3px] border-white object-cover object-center"
             />
             <img
-              src="/assets/images/trusted/02.webp"
+              src="/assets/images/trusted/02.jpeg"
               alt=""
               class="relative -ml-4 block h-12 w-12 rounded-full border-[3px] border-white object-cover object-center"
             />
             <img
-              src="/assets/images/trusted/03.webp"
+              src="/assets/images/trusted/03.jpeg"
               alt=""
               class="relative -ml-4 block h-12 w-12 rounded-full border-[3px] border-white object-cover object-center"
             />
             <img
-              src="/assets/images/trusted/04.webp"
+              src="/assets/images/trusted/04.jpeg"
               alt=""
               class="relative -ml-4 block h-12 w-12 rounded-full border-[3px] border-white object-cover object-center"
             />
             <img
-              src="/assets/images/trusted/05.webp"
+              src="/assets/images/trusted/05.jpeg"
               alt=""
               class="relative -ml-4 block h-12 w-12 rounded-full border-[3px] border-white object-cover object-center"
             />
@@ -55,9 +55,16 @@
         </Btn>
       </div>
 
-      <div
-        ref="scrollContainerRef" class="w-full min-w-0 max-w-full rounded-3xl pt-[36px] max-lg:mx-5">
-        <img src="/assets/images/catalog/images.png" class="w-full" alt="" />
+      <div class="min-w-0 max-w-full flex-1 rounded-3xl bg-white pt-[36px] max-lg:mx-5">
+        <CatalogPreview />
+
+        <div
+          class="r18m -mx-4 mb-8 mt-4 flex max-w-[424px] items-center justify-between rounded-[32px] bg-white py-[7px] pl-8 pr-2 text-black/45 shadow-[0_4px_44px_0_rgba(0,0,0,0.05)] lg:mx-auto lg:-mb-6 lg:w-full"
+        >
+          {{ $t('hi') }}
+
+          <GIcon name="icon_gemini" class="text-[46px]" />
+        </div>
       </div>
     </div>
   </div>
