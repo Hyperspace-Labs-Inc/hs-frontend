@@ -51,13 +51,11 @@ watch(y, scrollY => {
 
   const scrollPercentage = scrollY / (document.documentElement.scrollHeight - window.innerHeight)
 
-  const { totalFrames, currentFrame } = instance || {}
+  const { totalFrames } = instance || {}
 
   const targetFrame = Math.round(scrollPercentage * totalFrames * 4)
 
   animationRef.value.seek(targetFrame)
-
-  console.warn('{ totalFrames, currentFrame }', { totalFrames, currentFrame })
 })
 </script>
 
