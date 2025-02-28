@@ -12,6 +12,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@aarsteinmedia/dotlottie-player-light": "^5.1.0",
     "@iconify-json/heroicons": "^1.2.1",
     "@nuxt/icon": "^1.6.1",
     "@nuxt/ui": "^2.19.2",

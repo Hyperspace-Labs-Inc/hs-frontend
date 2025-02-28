@@ -35,6 +35,9 @@ export default defineNuxtConfig({
     ],
   },
   vite: {
+    optimizeDeps: {
+      exclude: ['@aarsteinmedia/dotlottie-player-light'],
+    },
     css: {
       preprocessorOptions: {
         scss: {

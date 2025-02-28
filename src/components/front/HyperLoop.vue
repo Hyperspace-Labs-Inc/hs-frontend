@@ -5,21 +5,16 @@
         src="/assets/images/animations/hyperloop.webp"
         alt="Loading animation"
         class="pointer-events-none w-full select-none object-contain"
-        :class="{ '!invisible': !isLoading }"
+        :class="{ invisible: animationRef?.isLoaded }"
       />
     </Transition>
 
     <Transition name="fade" mode="out-in">
-      <vue3-lottie
+      <dotlottie-player
         ref="animationRef"
-        v-show="!isLoading"
-        animation-link="/assets/animations/portal.json"
-        height="100%"
-        width="100%"
-        :loop="false"
-        :auto-play="false"
-        @on-animation-loaded="isLoading = false"
-        class="width-full pointer-events-none absolute left-0 top-0 select-none"
+        class="pointer-events-none absolute left-0 top-0 w-full select-none"
+        src="/assets/animations/portal.lottie"
+        @load="isLoading = false"
       />
     </Transition>
   </div>
@@ -28,14 +23,6 @@
 <script lang="ts" setup>
 import { useWindowScroll } from '@vueuse/core'
 
-import { Vue3Lottie } from 'vue3-lottie'
-
-import { useElementVisibility } from '@vueuse/core'
-
-const target = ref<HTMLElement | null>(null)
-
-const targetIsVisible = useElementVisibility(target)
-
 const isLoading = ref(true)
 
 const animationRef = ref()
@@ -43,11 +30,19 @@ const animationRef = ref()
 const { y } = useWindowScroll()
 
 watch(y, scrollY => {
-  if (animationRef.value) {
-    const scrollPercentage = scrollY / (document.documentElement.scrollHeight - window.innerHeight)
-
-    animationRef.value.goToAndStop(animationRef.value.getDuration() * 2 * scrollPercentage, true)
+  if (!animationRef.value) {
+    return
   }
+
+  const instance = animationRef.value?.getLottie()
+
+  const scrollPercentage = scrollY / (document.documentElement.scrollHeight - window.innerHeight)
+
+  const { totalFrames } = instance || {}
+
+  const targetFrame = Math.round(scrollPercentage * totalFrames * 4)
+
+  animationRef.value.seek(targetFrame)
 })
 </script>
 
