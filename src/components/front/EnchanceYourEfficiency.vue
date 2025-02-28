@@ -52,11 +52,18 @@ const targetIsVisible = useElementVisibility(target)
 
 const isLoaded = ref(false)
 
-onMounted(() => {
-  animationRef.value?.addEventListener?.('rendered', () => {
-    isLoaded.value = true
-  })
-})
+watch(
+  () => animationRef.value,
+  init => {
+    if (!init) {
+      return
+    }
+
+    animationRef.value?.addEventListener?.('rendered', () => {
+      isLoaded.value = true
+    })
+  }
+)
 
 watch(targetIsVisible, () => {
   animationRef.value?.play()
