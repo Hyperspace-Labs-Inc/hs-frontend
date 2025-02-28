@@ -82,7 +82,7 @@ watch(y, scrollY => {
 
   const { totalFrames } = instance || {}
 
-  const targetFrame = Math.round(scrollPercentage * totalFrames * 2)
+  const targetFrame = Math.round(scrollPercentage * totalFrames * 4)
 
   requestAnimationFrame(() => {
     animationRef.value.seek(targetFrame)
