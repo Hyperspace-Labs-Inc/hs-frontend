@@ -14,7 +14,6 @@
         v-show="isLoaded"
         key="hyperloop"
         ref="animationRef"
-        :animateOnScroll="13"
         class="pointer-events-none absolute left-0 top-0 w-full select-none"
         src="/assets/animations/portal.lottie"
       />
@@ -43,22 +42,24 @@ watch(
     })
   }
 )
-//
-// watch(y, scrollY => {
-//   if (!animationRef.value) {
-//     return
-//   }
-//
-//   const instance = animationRef.value?.getLottie()
-//
-//   const scrollPercentage = scrollY / (document.documentElement.scrollHeight - window.innerHeight)
-//
-//   const { totalFrames } = instance || {}
-//
-//   const targetFrame = Math.round(scrollPercentage * totalFrames * 4)
-//
-//   animationRef.value.seek(targetFrame)
-// })
+
+watch(y, scrollY => {
+  if (!animationRef.value) {
+    return
+  }
+
+  const instance = animationRef.value?.getLottie()
+
+  const scrollPercentage = scrollY / (document.documentElement.scrollHeight - window.innerHeight)
+
+  const { totalFrames } = instance || {}
+
+  const targetFrame = Math.round(scrollPercentage * totalFrames * 4)
+
+  requestAnimationFrame(() => {
+    animationRef.value.seek(targetFrame)
+  })
+})
 </script>
 
 <style scoped>
