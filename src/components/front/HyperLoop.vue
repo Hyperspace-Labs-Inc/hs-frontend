@@ -5,16 +5,16 @@
         src="/assets/images/animations/hyperloop.webp"
         alt="Loading animation"
         class="pointer-events-none w-full select-none object-contain"
-        :class="{ invisible: animationRef?.isLoaded }"
+        :class="{ invisible: isLoaded }"
       />
     </Transition>
 
     <Transition name="fade" mode="out-in">
       <dotlottie-player
+        v-show="isLoaded"
         ref="animationRef"
         class="pointer-events-none absolute left-0 top-0 w-full select-none"
         src="/assets/animations/portal.lottie"
-        @load="isLoading = false"
       />
     </Transition>
   </div>
@@ -23,11 +23,17 @@
 <script lang="ts" setup>
 import { useWindowScroll } from '@vueuse/core'
 
-const isLoading = ref(true)
+const isLoaded = ref(false)
 
 const animationRef = ref()
 
 const { y } = useWindowScroll()
+
+onMounted(() => {
+  animationRef.value.addEventListener('rendered', () => {
+    isLoaded.value = true
+  })
+})
 
 watch(y, scrollY => {
   if (!animationRef.value) {

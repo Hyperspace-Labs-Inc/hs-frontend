@@ -7,23 +7,19 @@
             src="/assets/images/animations/graph.webp"
             alt="Loading animation"
             class="pointer-events-none w-full select-none object-contain"
-            :class="{ '!invisible': !isLoading }"
+            :class="{ '!invisible': isLoaded }"
           />
         </Transition>
 
-        <Transition name="fade" mode="in-out">
-          <vue3-lottie
-            ref="animationRef"
-            v-show="!isLoading"
-            animation-link="/assets/animations/graph.json"
-            height="100%"
-            width="100%"
-            :loop="false"
-            :auto-play="false"
-            @on-animation-loaded="isLoading = false"
-            class="width-full pointer-events-none absolute left-0 top-0 select-none"
-          />
-        </Transition>
+        <ClientOnly>
+          <Transition name="fade" mode="in-out">
+            <dotlottie-player
+              ref="animationRef"
+              class="pointer-events-none absolute left-0 top-0 w-full select-none"
+              src="/assets/animations/graph.json"
+            />
+          </Transition>
+        </ClientOnly>
 
         <Btn classes="mt-10 mx-auto lg:hidden" to="https://hyperspace.ai/onboarding" w-fit>
           {{ $t('boost') }}
@@ -46,8 +42,6 @@
 </template>
 
 <script lang="ts" setup>
-import { Vue3Lottie } from 'vue3-lottie'
-
 import { useElementVisibility } from '@vueuse/core'
 
 const target = ref<HTMLElement | null>(null)
@@ -56,13 +50,19 @@ const animationRef = ref<HTMLElement | null>(null)
 
 const targetIsVisible = useElementVisibility(target)
 
-const isLoading = ref(true)
+const isLoaded = ref(false)
+
+onMounted(() => {
+  animationRef.value?.addEventListener?.('rendered', () => {
+    isLoaded.value = true
+  })
+})
 
 watch(targetIsVisible, () => {
   animationRef.value?.play()
 })
 
-watch(isLoading, () => {
+watch(isLoaded, () => {
   if (targetIsVisible.value) {
     animationRef.value?.play()
   }

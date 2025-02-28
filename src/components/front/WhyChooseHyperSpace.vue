@@ -2,7 +2,7 @@
   <div ref="target" class="container mt-[136px] lg:mt-[120px]">
     <div class="h2 text-center">
       <div class="text-gradient">{{ $t('why') }}</div>
-
+      {{ isLoaded }}-isLoaded
       <div class="text-black">{{ $t('hyperspace') }}?</div>
     </div>
 
@@ -13,23 +13,20 @@
             src="/assets/images/animations/models.webp"
             alt="Loading animation"
             class="pointer-events-none w-full select-none object-contain"
-            :class="{ '!invisible': !isLoading }"
+            :class="{ '!invisible': isLoaded }"
           />
         </Transition>
 
-        <Transition name="fade" mode="in-out">
-          <vue3-lottie
-            ref="animationRef"
-            v-show="!isLoading"
-            animation-link="/assets/animations/models.json"
-            height="100%"
-            width="100%"
-            :auto-play="false"
-            :loop="false"
-            @on-animation-loaded="isLoading = false"
-            class="width-full pointer-events-none absolute left-0 top-0 select-none"
-          />
-        </Transition>
+        <ClientOnly>
+          <Transition name="fade" mode="in-out">
+            <dotlottie-player
+              ref="animationRef"
+              class="pointer-events-none absolute left-0 top-0 w-full select-none"
+              src="/assets/animations/models.json"
+            />
+          </Transition>
+        </ClientOnly>
+
         <Btn classes="mt-6 lg:hidden mx-auto" w-fit to="https://hyperspace.ai/onboarding">
           {{ $t('try_our') }}
         </Btn>
@@ -51,28 +48,45 @@
 </template>
 
 <script lang="ts" setup>
-import { Vue3Lottie } from 'vue3-lottie'
+import { useWindowScroll } from '@vueuse/core'
 
-import { useElementVisibility, useWindowScroll } from '@vueuse/core'
-
-const target = ref<HTMLElement | null>(null)
-
-const targetIsVisible = useElementVisibility(target)
-
-const isLoading = ref(true)
+const isLoaded = ref(false)
 
 const animationRef = ref()
 
 const { y } = useWindowScroll()
 
-watch(y, scrollY => {
-  if (animationRef.value) {
-    const scrollPercentage = scrollY / (document.documentElement.scrollHeight - window.innerHeight)
+watch(
+  () => animationRef.value,
+  init => {
+    if (!init) {
+      return
+    }
 
-    console.warn('scrollPercentage', animationRef.value.getDuration() * scrollPercentage)
-
-    animationRef.value.goToAndStop(animationRef.value.getDuration() * scrollPercentage, true)
+    animationRef.value?.addEventListener?.('rendered', () => {
+      isLoaded.value = true
+    })
   }
+)
+
+watch(y, scrollY => {
+  if (!animationRef.value) {
+    return
+  }
+
+  const instance = animationRef.value?.getLottie()
+
+  const scrollPercentage = scrollY / (document.documentElement.scrollHeight - window.innerHeight)
+
+  const { totalFrames, currentFrame } = instance || {}
+
+  const targetFrame = Math.round(scrollPercentage * totalFrames * 2)
+
+  animationRef.value.play()
+
+  animationRef.value.seek(targetFrame)
+
+  animationRef.value.stop()
 })
 </script>
 
