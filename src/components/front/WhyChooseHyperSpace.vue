@@ -20,6 +20,7 @@
         <ClientOnly>
           <Transition name="fade" mode="in-out">
             <dotlottie-player
+              v-show="isLoaded"
               ref="animationRef"
               key="why"
               class="pointer-events-none absolute left-0 top-0 w-full select-none"
@@ -79,15 +80,11 @@ watch(y, scrollY => {
 
   const scrollPercentage = scrollY / (document.documentElement.scrollHeight - window.innerHeight)
 
-  const { totalFrames, currentFrame } = instance || {}
+  const { totalFrames } = instance || {}
 
   const targetFrame = Math.round(scrollPercentage * totalFrames * 2)
 
-  animationRef.value.play()
-
   animationRef.value.seek(targetFrame)
-
-  animationRef.value.stop()
 })
 </script>
 
