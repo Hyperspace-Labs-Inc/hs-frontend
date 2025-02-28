@@ -21,6 +21,7 @@
           <Transition name="fade" mode="in-out">
             <dotlottie-player
               ref="animationRef"
+              key="why"
               class="pointer-events-none absolute left-0 top-0 w-full select-none"
               src="/assets/animations/models.json"
             />
