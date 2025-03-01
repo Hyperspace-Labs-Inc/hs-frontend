@@ -1,13 +1,13 @@
 <template>
-  <div ref="target" class="container mt-[136px] lg:mt-[120px]">
+  <div class="container mt-[136px] lg:mt-[120px]">
     <div class="h2 text-center">
       <div class="text-gradient">{{ $t('why') }}</div>
-      {{ isLoaded }}-isLoaded
+
       <div class="text-black">{{ $t('hyperspace') }}?</div>
     </div>
 
     <div class="mt-14 flex gap-8 max-lg:flex-col-reverse max-lg:gap-6 lg:mt-[72px]">
-      <div class="relative flex-1">
+      <div ref="targetRef" class="relative flex-1">
         <Transition name="fade" mode="in-out">
           <img
             src="/assets/images/animations/models.webp"
@@ -50,13 +50,15 @@
 </template>
 
 <script lang="ts" setup>
-import { useWindowScroll } from '@vueuse/core'
+import { useElementBounding } from '@vueuse/core'
 
 const isLoaded = ref(false)
 
+const targetRef = ref()
+
 const animationRef = ref()
 
-const { y } = useWindowScroll()
+const { top, height } = useElementBounding(targetRef)
 
 watch(
   () => animationRef.value,
@@ -71,18 +73,34 @@ watch(
   }
 )
 
-watch(y, scrollY => {
+watch(top, topValue => {
   if (!animationRef.value) {
     return
   }
 
   const instance = animationRef.value?.getLottie()
 
-  const scrollPercentage = scrollY / (document.documentElement.scrollHeight - window.innerHeight)
+  if (!instance) {
+    console.warn('Lottie instance is undefined')
+    return
+  }
 
-  const { totalFrames } = instance || {}
+  const { totalFrames } = instance
 
-  const targetFrame = Math.round(scrollPercentage * totalFrames * 4)
+  if (!totalFrames) {
+    console.warn('totalFrames is undefined or 0')
+    return
+  }
+
+  const viewportHeight = window.innerHeight
+
+  const fullScrollDistance = height.value + viewportHeight
+
+  const progress = Math.min(1, Math.max(0, (viewportHeight - topValue) / fullScrollDistance))
+
+  const targetFrame = Math.round(progress * totalFrames)
+
+  // console.warn('targetFrame:', targetFrame, 'totalFrames:', totalFrames)
 
   requestAnimationFrame(() => {
     animationRef.value.seek(targetFrame)
