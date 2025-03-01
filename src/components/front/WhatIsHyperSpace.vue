@@ -55,14 +55,102 @@
         </Btn>
       </div>
 
-      <div
-        ref="scrollContainerRef" class="w-full min-w-0 max-w-full rounded-3xl pt-[36px] max-lg:mx-5">
-        <img src="/assets/images/catalog/images.png" class="w-full" alt="" />
-      </div>
+      <ClientOnly>
+        <div
+          ref="scrollContainerRef"
+          class="no-scroll flex min-w-0 gap-4 overflow-x-auto overflow-y-hidden"
+        >
+          <img v-for="image in selectedImages" :key="image" :src="image" class="w-full" alt="" />
+        </div>
+      </ClientOnly>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import CatalogPreview from '~/components/catalog/CatalogPreview.vue'
+import { useWindowSize, useScroll, useIntervalFn, useTimeoutFn } from '@vueuse/core'
+
+const { width } = useWindowSize()
+
+const images = [
+  '/assets/images/catalog/images.webp',
+  '/assets/images/catalog/chatbots.webp',
+  '/assets/images/catalog/texts.webp',
+  '/assets/images/catalog/music.webp',
+  '/assets/images/catalog/voices.webp',
+]
+
+const imagesMobile = [
+  '/assets/images/catalog/images_mobile.webp',
+  '/assets/images/catalog/chatbots_mobile.webp',
+  '/assets/images/catalog/texts_mobile.webp',
+  '/assets/images/catalog/music_mobile.webp',
+  '/assets/images/catalog/voices_mobile.webp',
+]
+
+const selectedImages = computed(() => (width.value < 768 ? imagesMobile : images))
+
+const scrollContainerRef = ref<HTMLElement | null>(null)
+
+const { x } = useScroll(scrollContainerRef, { behavior: 'smooth' })
+let currentIndex = 0
+let isUserScrolling = false
+let lastScrollX = 0
+
+const scrollToIndex = (index: number) => {
+  const container = scrollContainerRef.value
+  if (!container) return
+
+  const images = Array.from(container.querySelectorAll('img'))
+  const targetImage = images[index]
+  if (targetImage) {
+    x.value = targetImage.offsetLeft - container.offsetLeft
+  }
+}
+
+// Автоскролл каждые 2 секунды
+const { pause, resume } = useIntervalFn(() => {
+  if (!isUserScrolling) {
+    currentIndex = (currentIndex + 1) % selectedImages.value.length
+    scrollToIndex(currentIndex)
+  }
+}, 2000)
+
+// Таймер для фиксации остановки скролла
+const { start: startScrollTimeout } = useTimeoutFn(() => {
+  isUserScrolling = false
+  // Определяем ближайший слайд
+  const container = scrollContainerRef.value
+  if (!container) return
+
+  const images = Array.from(container.querySelectorAll('img'))
+  let closestIndex = 0
+  let minDistance = Infinity
+
+  images.forEach((img, index) => {
+    const distance = Math.abs(img.offsetLeft - container.offsetLeft - x.value)
+    if (distance < minDistance) {
+      minDistance = distance
+      closestIndex = index
+    }
+  })
+
+  currentIndex = closestIndex
+  scrollToIndex(currentIndex)
+  resume()
+}, 300)
+
+// Обработчик скролла
+watch(x, newX => {
+  if (Math.abs(newX - lastScrollX) > 5) {
+    isUserScrolling = true
+    pause()
+    startScrollTimeout()
+  }
+  lastScrollX = newX
+})
+
+onMounted(resume)
+
+onUnmounted(pause)
 </script>
