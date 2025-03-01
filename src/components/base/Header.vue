@@ -41,8 +41,7 @@
 
         <ClientOnly>
           <NuxtLink
-            target="_blank"
-            :to="url"
+            to="/store"
             class="r18 flex h-[49px] items-center justify-between px-6 transition-all hover:bg-black/10"
           >
             {{ $t('mobile_app') }}
@@ -62,12 +61,6 @@ import { useScroll } from '@vueuse/core'
 const { y } = useScroll(window)
 
 const localeRoute = useLocaleRoute()
-
-const { store, google } = useRuntimeConfig()?.public || {}
-
-const isAndroid = computed(() => /android/i.test(navigator?.userAgent))
-
-const url = computed(() => (isAndroid.value ? google : store))
 
 const isStickied = useState('isStickied', () => false)
 

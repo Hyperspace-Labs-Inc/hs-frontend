@@ -8,7 +8,11 @@
         </div>
 
         <div class="flex gap-8 max-lg:order-1">
-          <GIcon name="qr" class="flex-shrink-0 text-[108px] max-lg:hidden" />
+          <img
+            src="/assets/images/qr.webp"
+            class="w-[108px] flex-shrink-0 object-contain max-lg:hidden"
+            alt=""
+          />
 
           <div class="flex gap-3 lg:flex-col lg:gap-4">
             <NuxtLink :to="store" target="_blank">
