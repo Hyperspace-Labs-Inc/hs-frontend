@@ -14,7 +14,7 @@
       />
 
       <div class="flex gap-4 max-lg:hidden">
-        <Btn color="ghost" to="/sign-in" size="small">{{ $t('login') }}</Btn>
+        <Btn color="ghost" to="https://hyperspace.ai/sign-in" size="small">{{ $t('login') }}</Btn>
         <Btn to="https://hyperspace.ai/onboarding" size="small">{{ $t('tryfree') }}</Btn>
       </div>
 

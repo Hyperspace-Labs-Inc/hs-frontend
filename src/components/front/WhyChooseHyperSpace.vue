@@ -7,6 +7,10 @@
     </div>
 
     <div class="mt-14 flex gap-8 max-lg:flex-col-reverse max-lg:gap-6 lg:mt-[72px]">
+      <Btn classes="lg:hidden mx-auto" w-fit to="https://hyperspace.ai/onboarding">
+        {{ $t('try_our') }}
+      </Btn>
+
       <div ref="targetRef" class="relative flex-1">
         <Transition name="fade" mode="in-out">
           <img
@@ -29,10 +33,6 @@
             />
           </Transition>
         </ClientOnly>
-
-        <Btn classes="mt-6 lg:hidden mx-auto" w-fit to="https://hyperspace.ai/onboarding">
-          {{ $t('try_our') }}
-        </Btn>
       </div>
 
       <div class="flex-1">

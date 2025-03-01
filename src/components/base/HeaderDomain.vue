@@ -58,7 +58,7 @@ domains.value = [
   [
     {
       label: t('images'),
-      to: 'https://hyperspace.ai/ai-image-generator',
+      to: 'https://hyperspace.ai/ai-image-generator#catalog',
       title: t('images'),
       icons: ['leo', 'mid'],
       text: '+8',
@@ -67,7 +67,7 @@ domains.value = [
   [
     {
       label: t('chatbots'),
-      to: 'https://hyperspace.ai/chatbots-ai',
+      to: 'https://hyperspace.ai/chatbots-ai#catalog',
       title: t('chatbots'),
       icons: ['gemini', 'snow', 'meta'],
       text: '+1000',
@@ -76,7 +76,7 @@ domains.value = [
   [
     {
       label: t('text'),
-      to: 'https://hyperspace.ai/ai-text-generator',
+      to: 'https://hyperspace.ai/ai-text-generator#catalog',
       title: t('text'),
       icons: ['file'],
       text: '200',
@@ -85,7 +85,7 @@ domains.value = [
   [
     {
       label: t('music'),
-      to: 'https://hyperspace.ai/music-generation-ai',
+      to: 'https://hyperspace.ai/music-generation-ai#catalog',
       title: t('music'),
       icons: ['music'],
       text: '200',
@@ -94,7 +94,7 @@ domains.value = [
   [
     {
       label: t('voices'),
-      to: 'https://hyperspace.ai/voice-generation-ai',
+      to: 'https://hyperspace.ai/voice-generation-ai#catalog',
       title: t('voices'),
       icons: ['mic'],
       text: '48',
