@@ -21,6 +21,7 @@
           <Transition name="fade" mode="in-out">
             <dotlottie-player
               v-show="isLoaded"
+              subframe
               ref="animationRef"
               key="why"
               class="pointer-events-none absolute left-0 top-0 w-full select-none"
